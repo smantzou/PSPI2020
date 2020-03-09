@@ -1,0 +1,71 @@
+body{
+    background-color: #f4f4f4;
+    font-family: 'Times New Roman', Times, serif;
+}
+.box{
+    color:white;
+    text-align: center;
+    background-color: rgba(0, 128, 0, 0.904);
+    margin: none;
+}
+.box-2{
+    background-image: url('../images/health2.jpg');
+    background-position: left;
+    padding: 18%; 
+    margin: none;
+}
+#navbar{
+    text-align: center;
+    background-color: rgba(0, 128, 0, 0.904);
+}
+#navbar ul{
+    padding: 0;
+    list-style: none;
+}
+#navbar li{
+    display: inline;
+}
+#navbar a{
+    color: white;
+    text-decoration: none;
+    font-size: 175%;
+    padding-right: 10%;
+}
+.categories{
+    padding: 10px;
+    background-color: white;
+    margin-top: 2%;
+    overflow: hidden;
+}
+.categories h1{
+    color:white;
+    background-color: rgba(0, 128, 0, 0.904);
+    padding-left: 2%;
+}
+.conteiner{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+}
+.b1{
+    
+    width: 34%;
+    float: left;
+    margin-right: 5%;
+    
+}
+
+#main-footer{
+    color:white;
+    background-color: rgba(0, 128, 0, 0.904);
+    text-align: center;
+    margin-top: 3%;
+}
+.my-form input{
+    border-radius: 5px;
+    color: rgba(0, 128, 0, 0.904);
+    padding: 10px 15px;
+    font-size: 150%;
+    font-family: 'Times New Roman', Times, serif;
+}

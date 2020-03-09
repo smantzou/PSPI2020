@@ -1,6 +1,78 @@
-This is the first file.
-This is the first change.
-ak 98 giorgos
-asassas
-asasad
-Kalhspera kai kalh bradia 
+<!DOCTYPE html>
+<html>
+<head>
+     <title>
+          Healthy Life 
+    </title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div class="box">  
+         <h1>Healthy Life </h1>  
+    </div>  
+    <div class="box-2"></div>
+    <nav id="navbar">    
+            <ul>
+                <li> <a href="#">Diet</a> </li>
+                <li> <a href="#">Fitness</a> </li>
+                <li> <a href="#">Health</a> </li>
+                <li> <a href="#">Psycology</a> </li>
+            </ul>
+    </nav>
+    <div class="conteiner">
+        <div class="categories">
+            <h1> Diet</h1>
+            
+                <div class="b1">
+                    <img src="images/glass_of_water2.jpg" alt="">
+            
+                     <h2>Water's benefits!</h2>
+                     <p>
+                            Water is an inorganic, transparent, tasteless, odorless, and nearly
+                            colorless chemical substance, which is the main constituent of Earth's 
+                            hydrosphere and the fluids of most living organisms.
+                     </p>
+                     <a href="#">Read more</a>
+                 </div>
+                    
+                 <div class="b1">
+                    <img src="images/fruits4.jpg" alt="">
+                
+                    <h2>Fruit's benefits!</h2>
+                    <p>
+                        Fruits are the means by which angiosperms disseminate seeds. Edible fruits, 
+                        in particular, have propagated with the movements of humans and animals in a
+                        symbiotic relationship.
+                    </p>
+                    <a href="#">Read more</a>
+                </div>
+            
+        </div>
+        <div class="categories">
+            <h1> Fitness</h1>
+            <p>
+                mpla mpla mpla mpla
+            </p>
+        </div> 
+         <div class="categories">
+             <h1> Health</h1>
+             <p>
+                 mpla mpla mpla mpla
+              </p>
+         </div>
+
+        <div class="categories">
+            <h1> Psycology</h1>
+            <p>
+                mpla mpla mpla mpla
+            </p>
+        </div>
+    </div>   
+    <footer id="main-footer">
+        <p>
+            Copyright &copy; 2020 Healthy Life
+        </p>
+    </footer>    
+</body>
+
+</html> 
