@@ -6,7 +6,8 @@ body{
 }
 
 .box{
-    background-image: url('../images/health2.jpg');
+    background-image: url('./images/health2.jpg');
+    background-repeat: no-repeat;
     background-position: left;
     padding: 23%; 
     margin: none;
