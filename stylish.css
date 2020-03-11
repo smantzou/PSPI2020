@@ -1,36 +1,59 @@
 body{
+    margin: 0;
+    padding: 0;
     background-color: #f4f4f4;
     font-family: 'Times New Roman', Times, serif;
 }
+
 .box{
-    color:white;
-    text-align: center;
-    background-color: rgba(0, 128, 0, 0.904);
-    margin: none;
-}
-.box-2{
     background-image: url('../images/health2.jpg');
     background-position: left;
-    padding: 18%; 
+    padding: 23%; 
     margin: none;
 }
-#navbar{
-    text-align: center;
+
+.navbar{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    
+    z-index: 1;
     background-color: rgba(0, 128, 0, 0.904);
 }
-#navbar ul{
+.nav{
+    display: flex;
+    justify-content: right;
+    list-style: none;
+    margin-right: 15%;
+    font-size: 18px;
+}
+.nav ul{
     padding: 0;
     list-style: none;
-}
-#navbar li{
     display: inline;
 }
-#navbar a{
+.nav li{
+    display: inline;
+}
+.logo{
+    flex: 1 1 auto;
+    margin-left: 10%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 35px;
+}
+a{
+    margin: 15px;
     color: white;
     text-decoration: none;
-    font-size: 175%;
-    padding-right: 10%;
+    text-transform: uppercase;
 }
+
 .categories{
     padding: 10px;
     background-color: white;

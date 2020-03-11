@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
      <title>
           Healthy Life 
     </title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-    <div class="box">  
-         <h1>Healthy Life </h1>  
-    </div>  
-    <div class="box-2"></div>
-    <nav id="navbar">    
+    <div class="navbar">    
+        <a href="#" class="logo">Healthy Life</a> </li>
+        <div class="nav" >
             <ul>
-                <li> <a href="#">Diet</a> </li>
-                <li> <a href="#">Fitness</a> </li>
-                <li> <a href="#">Health</a> </li>
-                <li> <a href="#">Psycology</a> </li>
+                <li> <a href="#diet">Diet</a> </li>
+                <li> <a href="#fitness">Fitness</a> </li>
+                <li> <a href="#health">Health</a> </li>
+                <li> <a href="#psycology">Psycology</a> </li>
+                <li> <a href="#signin">Sign in</a> </li>
             </ul>
-    </nav>
+        </div>
+    </div>
+    
+    <div class="box"></div>
+
     <div class="conteiner">
         <div class="categories">
             <h1> Diet</h1>
@@ -75,4 +79,4 @@
     </footer>    
 </body>
 
-</html> 
+</html>
