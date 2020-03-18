@@ -89,6 +89,13 @@ a{
 .b1 a:hover{
     color: rgba(0, 128, 0, 0.904);
 }
+.writer{
+    color: #282828;
+}
+.small{
+    font-size: 110%;
+    color: #282828;
+}
 #main-footer{
     color:white;
     background-color: rgba(0, 128, 0, 0.904);
