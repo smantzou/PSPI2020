@@ -76,7 +76,7 @@ a{
     margin-top: 3%;
 }
 .b1{
-    width: 34%;
+    width: 32.8%;
     float: left;
     margin-right: 5%;
 }
@@ -88,6 +88,24 @@ a{
 }
 .b1 a:hover{
     color: rgba(0, 128, 0, 0.904);
+}
+.b2{
+    width: 340px;
+    height: 300px;
+    float: left;
+    margin-bottom: 8%;
+    overflow: hidden;
+}
+.b2{
+    overflow: hidden;
+}
+.b2 img{
+    display: block;
+    transition: transform .4s; 
+}
+.b2:hover img{
+    transform: scale(1.2);
+    transform-origin: 50% 50%;
 }
 .writer{
     color: #282828;

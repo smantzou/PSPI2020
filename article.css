@@ -5,7 +5,6 @@ body{
     font-family: 'Times New Roman', Times, serif; 
 }
 .navbar{
-    
     position: fixed;
     display: flex;
     justify-content: center;
@@ -82,6 +81,37 @@ a{
     font-size: 120%;
     font-weight: bold;
 }
+.b1{
+    width: 32.5%;
+    float: left;
+    margin-right: 5%;
+    overflow: hidden;
+}
+.b1 a{
+    margin: 0px;
+    color: black;
+    text-decoration: none;
+    text-transform: none;
+}
+.b1 a:hover{
+    color: rgba(0, 128, 0, 0.904);
+}
+.b2{
+    width: 340px;
+    height: 300px;
+    float: left;
+    margin-bottom: 8%;
+    overflow: hidden;
+}
+.b2 img{
+    display: block;
+    transition: transform .4s; 
+}
+.b2:hover img{
+    transform: scale(1.2);
+    transform-origin: 50% 50%;
+}
+
 #main-footer{
     color:white;
     background-color: rgba(0, 128, 0, 0.904);
