@@ -16,7 +16,7 @@ body{
 .regibox h4{
     position: absolute;
     top:45%;
-    left: 55%;
+    left: 61%;
     font-family: 'Times New Roman', Times, serif;
 }
 .regibox h2{
@@ -26,8 +26,8 @@ body{
 .regibox a{
     position: absolute;
     text-decoration: none;
-    top:48%;
-    left: 80%;
+    top:53%;
+    left: 70%;
     font-family: 'Times New Roman', Times, serif;
 }
 .send input[type="submit"]{
@@ -83,4 +83,41 @@ body{
 }
 .regibox ::placeholder{
     font-family: 'Times New Roman', Times, serif;
+}
+
+@media only screen and (max-height: 600px){
+    .regibox{
+        display: inline-block;
+        position: absolute;
+        width: 80%;
+    }
+
+}
+
+@media only screen and (max-height: 400px){
+    .regibox{
+        display: inline-block;
+        position: absolute;
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 1248px){
+    .regibox{
+        display: inline-block;
+        position: absolute;
+        width: 80%;
+    }
+    .regibox h4{
+        left: 61%;
+    }
+}
+
+@media only screen and (max-width: 635px){
+    .regibox{
+        display: inline-block;
+        position: absolute;
+        width: 100%;
+    }
 }

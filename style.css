@@ -1,7 +1,7 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: white;
     font-family: 'Times New Roman', Times, serif; 
 }
 
@@ -9,10 +9,28 @@ body{
     background-image: url('./images/health2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    
     background-position: left;
     padding: 23%; 
     margin: none;
+}
+.nav-item{
+    font-size: 19px;
+}
+div.jumbotron{
+    background-color: white;
+
+}
+.btn-primary{
+    background-color:  rgba(0, 128, 0, 0.904) ;
+}
+.bg-success{
+    
+    border-radius: 0.5em; !important;
+    
+}
+.carousel-slide{
+    width: 50%;
+    height: 50%;
 }
 
 .navbar{
@@ -34,14 +52,7 @@ body{
     margin-right: 15%;
     font-size: 18px;
 }
-.nav ul{
-    padding: 0;
-    list-style: none;
-    display: inline;
-}
-.nav li{
-    display: inline;
-}
+
 .logo{
    
     flex: 1 1 auto;
@@ -50,6 +61,8 @@ body{
     letter-spacing: 1px;
     font-weight: bold;
     font-size: 35px;
+    color: white;
+    
 }
 a{
     margin: 15px;
@@ -69,11 +82,12 @@ a{
     background-color: rgba(0, 128, 0, 0.904);
     padding-left: 2%;
 }
-.conteiner{
-    width: 70%;
+.carousel-box{
+    width: 40%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 3%;
+    
 }
 .b1{
     width: 32.8%;
@@ -90,17 +104,13 @@ a{
     color: rgba(0, 128, 0, 0.904);
 }
 .b2{
-    width: 340px;
-    height: 300px;
-    float: left;
+    
     margin-bottom: 8%;
-    overflow: hidden;
+   
 }
-.b2{
-    overflow: hidden;
-}
+
 .b2 img{
-    display: block;
+    
     transition: transform .4s; 
 }
 .b2:hover img{
@@ -119,6 +129,7 @@ a{
     background-color: rgba(0, 128, 0, 0.904);
     text-align: center;
     margin-top: 3%;
+    width: 100%;
 }
 .my-form input{
     border-radius: 5px;
@@ -127,9 +138,36 @@ a{
     font-size: 150%;
     font-family: 'Times New Roman', Times, serif;
 }
-@media(max-width:1400px){
+#signin{
+    color: rgba(0, 128, 0, 0.904);
+    background-color: #f4f4f4;
+    border-radius: 0.5em;
+    background-size: 100px 100px;  
+}
+@media only screen and (max-width:1400px){
     .b1{
         width: 50%;
         float: none;
     }
+    #signin{
+    color: rgba(0, 128, 0, 0.904);
+    background-color: #f4f4f4;
+    }
+    .carousel-item p { 
+       visibility: hidden; 
+    }
+    h1.bg-success{
+        
+      font-size: 25px;
+      
+    }
+    .carousel-inner{
+        
+        width:200%;
+        max-height: 200% !important;
+        margin-right: auto;
+      }
+
+    
 }
+

@@ -4,6 +4,9 @@ body{
     background-color: #f4f4f4;
     font-family: 'Times New Roman', Times, serif; 
 }
+.nav-item{
+    font-size: 19px;
+}
 .navbar{
     
     position: fixed;
@@ -124,6 +127,12 @@ a{
     background-color: rgba(0, 128, 0, 0.904);
     text-align: center;
     margin-top: 3%;
+}
+#signin{
+    color: rgba(0, 128, 0, 0.904);
+    background-color: #f4f4f4;
+    border-radius: 0.5em;
+    background-size: 100px 100px;  
 }
 @media(max-width:1400px){
     .b3{
