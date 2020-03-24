@@ -8,6 +8,29 @@ body{
      
    
 }
+
+.logo{
+    width: 320px;
+    text-decoration: none;
+    flex: 1 1 auto;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 35px;
+    color: white;
+    background-color: rgba(50,205,50,0.5);
+
+    top:7%;
+    left:50%;
+    position:absolute;
+    transform:translate(-50%,-50%);
+    box-sizing: border-box;
+    border-radius: 0.5em;
+    padding:1%;
+    text-align: center
+}
+
 .loginbox{
     width: 320px;
     height:420px;
