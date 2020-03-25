@@ -15,7 +15,7 @@ body{
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-    
+
     z-index: 1;
     background-color: rgba(0, 128, 0, 0.904);
 }
