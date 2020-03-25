@@ -3,6 +3,7 @@ body{
     padding: 0;
     background-color: white;
     font-family: 'Times New Roman', Times, serif; 
+    font-size: 20px;
 }
 
 .box{
@@ -16,10 +17,7 @@ body{
 .nav-item{
     font-size: 19px;
 }
-div.jumbotron{
-    background-color: white;
 
-}
 .btn-primary{
     background-color:  rgba(0, 128, 0, 0.904) ;
 }
@@ -144,7 +142,33 @@ a{
     border-radius: 0.5em;
     background-size: 100px 100px;  
 }
+.col-md-3 h1{
+    font-size: 38px;
+    
+}
+.col-md-3 h2{
+    
+    font-size: 25px;
+}
+.col-md-3 a{
+    
+    color: black;
+}
+.col-md-3 a:hover{
+    text-decoration: none;
+    color: rgba(0, 128, 0, 0.904);
+}
 @media only screen and (max-width:1400px){
+    .carousel-item p { 
+        font-size:17px ; 
+      }
+      h1.bg-success{
+          
+        font-size: 17px;
+        
+      }
+}
+@media only screen and (max-width:1200px){
     .b1{
         width: 50%;
         float: none;
@@ -154,20 +178,57 @@ a{
     background-color: #f4f4f4;
     }
     .carousel-item p { 
-       visibility: hidden; 
+      font-size:19px ; 
     }
     h1.bg-success{
         
-      font-size: 25px;
+      font-size: 22px;
       
     }
     .carousel-inner{
         
-        width:200%;
-        max-height: 200% !important;
+        width:130%;
+        max-height: 130% 
         margin-right: auto;
       }
 
     
 }
 
+@media only screen and (max-width:768px){
+    .carousel-item p { 
+        display: none;
+      }
+      .carousel-inner{
+        
+        width:150%;
+        max-height: 150% 
+        margin-right: auto;
+      }
+      h1.bg-success{
+          
+        font-size: 17px;
+        
+      }
+      .col-md-3{
+          padding-left: 7em;
+      }
+      #main-footer{
+          margin-left: 2em;
+      }
+}
+@media only screen and (max-width:1544px){
+    .logo{
+        margin-left: 0%;
+    }
+}
+@media only screen and (max-width:1485px){
+    .categories{
+        margin-top: 70px;
+    }
+}
+@media only screen and (max-width:1100px){
+    .categories{
+        margin-top: 115px;
+    }
+}
