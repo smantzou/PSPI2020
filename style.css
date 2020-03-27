@@ -18,21 +18,21 @@ body{
     font-size: 19px;
 }
 
-.btn-primary{
-    background-color:  rgba(0, 128, 0, 0.904) ;
-}
 .bg-success{
     
     border-radius: 0.5em; !important;
     
 }
-.carousel-slide{
+/*
+Useless
+*/
+.carousel-slide{ 
     width: 50%;
     height: 50%;
 }
 
 .navbar{
-    position: fixed;
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -129,6 +129,9 @@ a{
     margin-top: 3%;
     width: 100%;
 }
+/*
+Useless
+*/
 .my-form input{
     border-radius: 5px;
     color: rgba(0, 128, 0, 0.904);
@@ -157,6 +160,64 @@ a{
 .col-md-3 a:hover{
     text-decoration: none;
     color: rgba(0, 128, 0, 0.904);
+}
+#bmi{
+    background-color: rgba(0, 128, 0, 0.904);
+    color: white;
+    border: none;
+    border-radius: 2%;
+    padding: 5px;
+}
+#bmiform{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 128, 0, 0.904);
+    color: white;
+    padding: 2%;
+    justify-content: center;
+    visibility: hidden;
+}
+#bmiform input{
+    margin-bottom: 1%;
+    margin-left: 40%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+}
+#bmiform label{
+    display: flex;
+    justify-content: center;
+}
+#bmibtn{
+    border-style: solid 1px white;
+    background-color: white;
+    color: rgba(0, 128, 0, 0.904);
+    padding: 2%;
+}
+#bmitable{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 128, 0, 0.904);
+    color: white;
+    text-align: center;
+    padding: 2%;
+    visibility: hidden;
+}
+#bmitable th{
+    border: 1px solid white;
+    margin: 5px;
+}
+#bmitable td{
+    border: 1px solid white;
+    margin: 3px;
+    padding: 3px;
+}
+#hideform{
+    color: white;
+    background-color: rgba(0, 128, 0, 0.904);
+    border: none;
+    text-decoration: underline;
+    visibility: hidden;
 }
 @media only screen and (max-width:1400px){
     .carousel-item p { 
@@ -194,6 +255,7 @@ a{
 
     
 }
+
 
 @media only screen and (max-width:768px){
     .carousel-item p { 
