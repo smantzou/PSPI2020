@@ -143,9 +143,16 @@ a{
 @media(max-width:1400px){
     .b3{
         width: 340px;
+        height: 300px;
+    }
+}
+@media(max-width:1058px){
+    .b3{
+        width: 96%;
+        max-width: 340px;
         height: auto;
         min-height: 300px;
-        border: none;
+        border-top: none;
     }
 }
 @media only screen and (max-width:1544px){
