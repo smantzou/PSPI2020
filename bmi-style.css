@@ -1,14 +1,11 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: white;
+    background-color: #f4f4f4;
     font-family: 'Times New Roman', Times, serif; 
     font-size: 20px;
 }
 
-.jumbotron{
-    background-color: white;
-}
 .container-fluid{
     margin-top: 2%;
     background-image: url(./images/bmi.jpg);
@@ -102,9 +99,8 @@ a.dropdown-item{
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: bold;
-    font-size: 35px;
-    color: white;
-    
+    font-size: 35px; 
+
 }
 a{
     margin: 15px;
@@ -112,18 +108,27 @@ a{
     text-decoration: none;
     text-transform: uppercase;
 }
-
 .categories{
-    padding: 10px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1%;
     background-color: white;
-    margin-top: 2%;
+    overflow: hidden;
+
+    background-color: white;
+    margin-top: 3%;
     overflow: hidden;
 }
+
 .categories h1{
     color:white;
     background-color: rgba(0, 128, 0, 0.904);
     padding-left: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%; 
 }
+
 #bmi{
     background-color: rgba(0, 128, 0, 0.904);
     color: white;
@@ -141,8 +146,6 @@ a{
     padding: 2%;
     justify-content: center;
     visibility: hidden;
-    
-    
 }
 #bmiform input{
     margin-bottom: 1%;
@@ -185,4 +188,9 @@ a{
     border: none;
     text-decoration: underline;
     visibility: hidden;
+}
+@media only screen and (max-width:1544px){
+    .logo{
+        margin-left: 0%;
+    }
 }
