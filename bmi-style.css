@@ -5,13 +5,8 @@ body{
     font-family: 'Times New Roman', Times, serif; 
     font-size: 20px;
 }
-
 .container-fluid{
     margin-top: 2%;
-    background-image: url(./images/bmi.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    
 }
 #main-footer{
     color:white;
@@ -52,25 +47,18 @@ body{
     background-color: white;
 }
  div.dropdown-menu.show{
-    background: white;
-    
+    background: white;  
 }
 a.dropdown-item{
     color: rgba(0, 128, 0, 0.904);
     font-size: 15px;
-    font-weight: bold;
-    
-    
-    
+    font-weight: bold;  
 }
 .dropdown-item:hover{
     color: white;
     text-decoration: none;
     background-color: rgba(0, 128, 0, 0.904);
-    width: max-content;
-    
-    
-    
+    width: max-content;   
 }
 .navbar{
     
@@ -91,7 +79,6 @@ a.dropdown-item{
     margin-right: 15%;
     font-size: 18px;
 }
-
 .logo{
    
     flex: 1 1 auto;
@@ -100,7 +87,6 @@ a.dropdown-item{
     letter-spacing: 1px;
     font-weight: bold;
     font-size: 35px; 
-
 }
 a{
     margin: 15px;
@@ -118,12 +104,10 @@ a{
     padding-bottom: 1%;
     background-color: white;
     overflow: hidden;
-
     background-color: white;
     margin-top: 3%;
     overflow: hidden;
 }
-
 .categories h1{
     color:white;
     background-color: rgba(0, 128, 0, 0.904);
@@ -131,15 +115,13 @@ a{
     margin-top: 2%;
     margin-bottom: 2%; 
 }
-
-#bmi{
+#bmibox h3{
+    text-align: center;
     background-color: rgba(0, 128, 0, 0.904);
     color: white;
     border: none;
-    
-    padding: 5px;
-   
-
+    padding: 0%;
+    margin: 0%;
 }
 #bmiform{
     display: flex;
@@ -148,7 +130,6 @@ a{
     color: white;
     padding: 2%;
     justify-content: center;
-    visibility: hidden;
 }
 #bmiform input{
     margin-bottom: 1%;
@@ -174,7 +155,6 @@ a{
     color: white;
     text-align: center;
     padding: 2%;
-    visibility: hidden;
 }
 #bmitable th{
     border: 1px solid white;
@@ -184,13 +164,6 @@ a{
     border: 1px solid white;
     margin: 3px;
     padding: 3px;
-}
-#hideform{
-    color: white;
-    background-color: rgba(0, 128, 0, 0.904);
-    border: none;
-    text-decoration: underline;
-    visibility: hidden;
 }
 @media only screen and (max-width:1544px){
     .logo{
