@@ -7,9 +7,12 @@ const mainbtnInput = document.querySelector('#btn-submit');
 const btn1Input = document.querySelector('#button1');
 const btn2Input = document.querySelector('#button2');
 
+const message = document.querySelector('.msg');
+
 
 btn1Input.addEventListener('click', (e) => {
     e.preventDefault();
+    message.style.visibility = "hidden";
     if(document.getElementById("button1").innerText == "Don't have an account?"){
         
         document.querySelector('.formbox').style.padding = "20px";
@@ -42,6 +45,7 @@ btn1Input.addEventListener('click', (e) => {
 btn2Input.addEventListener("click",forgot);
 
 function forgot(){
+    message.style.visibility = "hidden";
     emailInput.style.display = "inline";
     nameInput.style.visibility = "hidden";
     passInput.style.visibility = "hidden";
@@ -58,27 +62,28 @@ mainbtnInput.addEventListener("click", onSubmit);
     
 function onSubmit(e){
     e.preventDefault();
-    //console.log(mainbtnInput.value);
     if(mainbtnInput.value == "Sign In"){
         if(nameInput.value == '' || passInput.value == '' ){
-            document.querySelector('.msg').classList.add('error');
-            document.querySelector('.msg').innerHTML = 'Please enter all fields';
-            
-            setTimeout(() => document.querySelector('.msg').remove(), 2700);
-            setTimeout(function () {window.location.reload(true)}, 2900);
+            if(message.style.visibility == "hidden"){
+                message.style.visibility = "visible";
+            }
+            message.classList.add('error');
+            message.innerHTML = 'Please enter all fields';
+
         }else{
+            message.style.visibility = "hidden";
             nameInput.value = '';
             passInput.value = '';
         }
     } 
     if(mainbtnInput.value == "Sign Up"){
         if(nameInput.value == '' || passInput.value == ''  || emailInput.value == '' || confInput.value == ''){
-            document.querySelector('.msg').classList.add('error');
-            document.querySelector('.msg').innerHTML = 'Please enter all fields';
-            
-            setTimeout(() => document.querySelector('.msg').remove(), 2700);
-            setTimeout(function () {window.location.reload(true)}, 2900);
+            message.style.visibility = "visible";
+            message.classList.add('error');
+            message.innerHTML = 'Please enter all fields';
+
         }else{
+            message.style.visibility = "hidden";
             nameInput.value = '';
             passInput.value = '';
             confInput.value = '';
@@ -87,12 +92,12 @@ function onSubmit(e){
     } 
     if(mainbtnInput.value == "Send Email"){
         if(emailInput.value == ''){
-            document.querySelector('.msg').classList.add('error');
-            document.querySelector('.msg').innerHTML = 'Please enter all fields';
-            
-            setTimeout(() => document.querySelector('.msg').remove(), 2700);
-            setTimeout(function () {window.location.reload(true)}, 2900);
+            message.style.visibility = "visible";
+            message.classList.add('error');
+            message.innerHTML = 'Please enter all fields';
+
         }else{
+            message.style.visibility = "hidden";
             emailInput.value = '';
         }
     } 
