@@ -1,40 +1,17 @@
-document.getElementById('bmi').addEventListener('click', showForm);
+document.getElementById('bmibtn').addEventListener('click', bmiCalc);
 
-var flag = false;
 const box = document.getElementById('bmibox');
 const resultp = document.createElement('p');
 var heightInput = document.getElementById('height');
 var weightInput = document.getElementById('weight');
 
-function showForm() {
-    
-    document.getElementById('bmiform').style.visibility = 'visible';
-    document.getElementById('bmitable').style.visibility = 'visible';
-    document.getElementById('hideform').style.visibility = 'visible';
-    document.getElementById('bmibtn').addEventListener('click', bmiCalc);
-    document.getElementById('hideform').addEventListener('click', hideForm);
-}
-
-function hideForm() {
-
-    if (flag == true) {box.removeChild(resultp);}     
-    
-    document.getElementById('bmiform').style.visibility = 'hidden';
-    document.getElementById('bmitable').style.visibility = 'hidden';
-    document.getElementById('hideform').style.visibility = 'hidden';
-    document.getElementById('bmibtn').removeEventListener('click', bmiCalc);
-    document.getElementById('hideform').removeEventListener('click', hideForm);
-    
-    flag = false;
-}
-
 function bmiCalc() {
     
     let weight = parseFloat(weightInput.value);
-    let height = parseFloat(heightInput.value);
+    let height = parseFloat(heightInput.value)/100;
     let bmi = weight/(height*height);
     
-    if (isNaN(bmi)) {
+    if (isNaN(bmi) || bmi <= 0) {
 
         resultp.style.margin = '0px';
         resultp.style.color = 'white';
@@ -44,7 +21,6 @@ function bmiCalc() {
         resultp.textContent = `Please enter valid numbers before calculating`;
         
         box.appendChild(resultp);
-        flag = true;
         return;
     }
 
@@ -56,5 +32,4 @@ function bmiCalc() {
     resultp.style.backgroundColor = 'rgba(0, 128, 0, 0.904)';
     
     box.appendChild(resultp);
-    flag = true;
 }
