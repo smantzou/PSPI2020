@@ -5,8 +5,44 @@ body{
     background-size: 100%;
     background-position: center center;
     background-attachment: fixed;
+    font-family: 'Times New Roman', Times, serif;
     
 }
+.logo{
+    width: 320px;
+    text-decoration: none;
+    flex: 1 1 auto;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 35px;
+    color: rgba(50,205,50,0.5);
+    background-color: rgba(240,255,255,0.7);
+
+    top:7%;
+    left:50%;
+    position:absolute;
+    transform:translate(-50%,-50%);
+    box-sizing: border-box;
+    border-radius: 0.5em;
+    padding:1%;
+    text-align: center
+}
+.logo:hover 
+{
+    cursor: pointer;
+    color : rgba(0, 128, 0, 0.904);
+}
+.avatar{
+   
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left:calc(50% - 50px);
+ }
 .send{
     position: absolute;
     top:30%;
@@ -118,6 +154,12 @@ body{
         position: absolute;
         width: 80%;
     }
+    .avatar{
+        display: none;
+    }
+    .logo{
+        display: none;
+    }
 
 }
 
@@ -127,7 +169,12 @@ body{
         position: absolute;
         width: 100%;
     }
-
+    .avatar{
+        display: none;
+    }
+    .logo{
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 1248px){
@@ -139,6 +186,9 @@ body{
     .regibox h4{
         left: 61%;
     }
+    .logo{
+        background-color: white;
+    }
 }
 
 @media only screen and (max-width: 635px){
@@ -146,5 +196,8 @@ body{
         display: inline-block;
         position: absolute;
         width: 100%;
+    }
+    .logo{
+        background-color: white;
     }
 }
