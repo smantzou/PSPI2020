@@ -10,8 +10,8 @@ function bmiCalc() {
     let weight = parseFloat(weightInput.value);
     let height = parseFloat(heightInput.value)/100;
     let bmi = weight/(height*height);
-    
-    if (isNaN(bmi) || bmi <= 0) {
+
+    if (isNaN(bmi) || bmi <= 0 || height <= 0) {
 
         resultp.style.margin = '0px';
         resultp.style.color = 'white';
@@ -32,4 +32,5 @@ function bmiCalc() {
     resultp.style.backgroundColor = 'rgba(0, 128, 0, 0.904)';
     
     box.appendChild(resultp);
+    return;
 }
