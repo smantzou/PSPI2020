@@ -1,62 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Manage-Acc</title>
-    <link rel="stylesheet" type="text/css" href="./sign-in-up-lost.css">
-</head>
+    <link rel="stylesheet" type="text/css" href="./sign-in-up-lost.css" />
+  </head>
 
-<body>
-    <a class="navbar-brand logo" href="./index.html">Healthy Life</a>
-    <div class="regibox">
-        <img class="avatar" src="../PSPI2020/images/avatar.png" alt="avatar">
-        <h2 id="Heading">Log in to your account </h2>
+  <body>
+    <div class="flex-container">
+      <div>
+        <a class="navbar-brand logo" href="./index.html">Healthy Life</a>
+      </div>
+      <div class="container">
+        <img class="avatar" src="../PSPI2020/images/avatar.png" alt="avatar" />
+        <h2 id="Heading">Log in to your account</h2>
         <div class="formbox">
-            <form>
-                <input type="text" name="" placeholder="Username" id="username">
-                <input type="text" name="" placeholder="Email" id="email">
-                <input type="password" name="" placeholder="Password" id="password">
-                <input type="password" name="" placeholder="Confirm Password" id="confirm-password">
-            </form>
+          <form>
+            <input type="text" name="" placeholder="Username" id="username" />
+            <input type="text" name="" placeholder="Email" id="email" />
+            <input
+              type="password"
+              name=""
+              placeholder="Password"
+              id="password"
+            />
+            <input
+              type="password"
+              name=""
+              placeholder="Confirm Password"
+              id="confirm-password"
+            />
+          </form>
         </div>
         <div class="send">
-            <input type="submit" name="" value="Sign In" id="btn-submit">
+          <input type="submit" name="" value="Sign In" id="btn-submit" />
         </div>
-        <button class="btn btn-primary" type="button" id="button1">
+        <div>
+          <button class="btn btn-primary" type="button" id="button1">
             Don't have an account?
-        </button>
-        <h5 id="remember">
+          </button>
+        </div>
+        <div>
+          <h5 id="remember">
             Remembered your password?
-        </h5>
-        <button class="btn btn-primary" type="button" id="button2">
+          </h5>
+        </div>
+        <div>
+          <button class="btn btn-primary" type="button" id="button2">
             Forgot password?
-        </button>
-        <h4 id="text-lost">
+          </button>
+        </div>
+        <div>
+          <h4 id="text-lost">
             Enter your email and we'll send you a link to create a new password.
-        </h4>
-        <br>
-        <div class="msg"></div>
-        <!--<a href="./signin.html">Sign In</a>-->
+          </h4>
+        </div>
+        <br />
+        <div>
+          <div class="msg"></div>
+        </div>
+      </div>
     </div>
-    <!--<section class="container">
-        <form id="my-form">
-            <h2>Create an Account</h2>
-        </form>
-    </section>-->
-    <script src="sign-in-up-lost.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-</body>
 
+    <script src="sign-in-up-lost.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

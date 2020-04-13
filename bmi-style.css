@@ -8,13 +8,7 @@ body{
 .container-fluid{
     margin-top: 2%;
 }
-#main-footer{
-    color:white;
-    background-color: rgba(0, 128, 0, 0.904);
-    text-align: center;
-    margin-top: 3%;
-    width: 100%;
-}
+
 #signin{
     color: rgba(0, 128, 0, 0.904);
     background-color: #f4f4f4;
@@ -165,6 +159,47 @@ a{
     margin: 3px;
     padding: 3px;
 }
+/* Footer*/
+#main-footer {
+    color: white;
+    background-color: rgba(0, 128, 0, 0.904);
+    text-align: center;
+    margin-top: 2%;
+    width: 100%;
+    height: 60px; /*New by DAFAL */
+  }
+  #main-footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0; /* New by DAFAL */
+    padding: 0; /* New by DAFAL */
+  }
+  #main-footer a:hover {
+    color: lightgreen;
+  }
+  /*New by DAFAL*/
+  #main-footer p {
+    margin: 0;
+  }
+  #instamedia {
+    position: absolute;
+    margin-bottom: 0;
+    right: 2em;
+    display: inline-block;
+  }
+  #instamedia:hover {
+    transform: scale(1.1);
+    transform-origin: 50% 50%;
+  }
+  #fbmedia {
+    position: absolute;
+    right: 6em;
+    display: inline-block;
+  }
+  #fbmedia:hover {
+    transform: scale(1.1);
+    transform-origin: 50% 50%;
+  }
 @media only screen and (max-width:1544px){
     .logo{
         margin-left: 0%;
