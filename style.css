@@ -33,7 +33,7 @@ body {
   background-color: white;
 }
 div.dropdown-menu.show {
-  background: white;
+  background: rgba(0, 128, 0, 0.904);
 }
 .dropdown-item a {
   color: rgba(0, 128, 0, 0.904);
@@ -41,10 +41,11 @@ div.dropdown-menu.show {
   font-weight: bold;
 }
 .dropdown-item:hover {
-  color: white;
+  color: green;
   text-decoration: none;
-  background-color: rgba(0, 128, 0, 0.904);
+  background-color: white;
   width: max-content;
+  font-weight: bold;
 }
 .navbar {
   display: flex;
