@@ -1,79 +1,73 @@
-body{
-    background-image: url(./images/park.jpg);
-    background-repeat: no-repeat;
-    background-position: center, bottom;
-    -webkit-background-size: 100% 100%;
-    -moz-background-size: 100% 100%;
-    background-size: 100% 100%;
-    -o-background-size: 100% 100%;
-    font-family: 'Times New Roman', Times, serif;
+body {
+  background-image: url(./images/park.jpg);
+  background-repeat: no-repeat;
+  background-position: center, bottom;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  font-family: "Times New Roman", Times, serif;
 }
 
-img{
-    position: relative;
-    padding-left: 250px;
+html {
+  height: 100%;
 }
-html{
-    height: 100%;
-}
-.logo{
-    width: 350px;
-    text-decoration: none;
-    flex: 1 1 auto;
+.logo {
+  width: 350px;
+  text-decoration: none;
+  flex: 1 1 auto;
 
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: bold;
-    font-size: 35px;
-    color: white;
-    background-color: rgba(0, 128, 0, 0.904);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-size: 35px;
+  color: white;
+  background-color: rgba(0, 128, 0, 0.904);
 
-    top:12%;
-    left:50%;
-    position:absolute;
-    transform:translate(-50%,-50%);
-    box-sizing: border-box;
-    border-radius: 0.5em;
-    padding:1%;
-    text-align: center
+  top: 12%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  border-radius: 0.5em;
+  padding: 1%;
+  text-align: center;
 }
-.logo:hover 
-{
-    cursor: pointer;
-    color : rgba(240,255,255,0.7);
+.logo:hover {
+  cursor: pointer;
+  color: rgba(240, 255, 255, 0.7);
 }
-.container{
-    margin-top: 15em;
-    width: 30%;
-    padding-bottom: 1em;
-    padding-top: 0.5em;
-    border-radius: 1em;
-    background-color:rgba(0, 128, 0, 0.904) ;
-    position: relative;
-    color: white;
+.container {
+  margin-top: 15em;
+  width: 30%;
+  padding-bottom: 1em;
+  padding-top: 0.5em;
+  border-radius: 1em;
+  background-color: rgba(0, 128, 0, 0.904);
+  position: relative;
+  color: white;
 }
 
-.btn button[type="submit"]:hover{
-    cursor: pointer;
-    background : rgb(0,191,255);
-    color:white;
+.btn button[type="submit"]:hover {
+  cursor: pointer;
+  background: rgb(0, 191, 255);
+  color: white;
 }
 
-@media only screen and (max-height: 700px){
-    .container{
-        margin-top: 8em;
-
-    }
+@media only screen and (max-height: 700px) {
+  .container {
+    margin-top: 8em;
+  }
 }
 
-@media only screen and (max-width: 1300px){
-    .container{
-        width: 50%;
-    }
+@media only screen and (max-width: 1300px) {
+  .container {
+    width: 50%;
+  }
 }
 
-@media only screen and (max-width: 800px){
-    .container{
-        width: 70%;
-    }
+@media only screen and (max-width: 800px) {
+  .container {
+    width: 70%;
+  }
 }
