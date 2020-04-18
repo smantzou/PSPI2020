@@ -83,8 +83,13 @@ a {
   color: #282828;
 }
 .big {
-  font-size: 120%;
+  font-size: 140%;
   font-weight: bold;
+}
+.bullets{
+  font-size: 120%;
+  color: #282828;
+  white-space: pre-line;
 }
 .b1 {
   max-width: 340px;
