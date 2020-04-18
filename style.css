@@ -115,6 +115,7 @@ div.dropdown-menu.show {
 }
 /* Footer*/
 #main-footer {
+  font-size: 18px;
   color: white;
   background-color: rgba(0, 128, 0, 0.904);
   text-align: center;
@@ -131,14 +132,19 @@ div.dropdown-menu.show {
 #main-footer a:hover {
   color: lightgreen;
 }
+#main-footer img {
+  height: 3em;
+  width: 3em;
+}
 /*New by DAFAL*/
 #main-footer p {
   margin: 0;
 }
 #instamedia {
+  padding-top: 0.5em;
   position: absolute;
   margin-bottom: 0;
-  right: 2em;
+  right: 1em;
   display: inline-block;
 }
 #instamedia:hover {
@@ -146,15 +152,15 @@ div.dropdown-menu.show {
   transform-origin: 50% 50%;
 }
 #fbmedia {
+  padding-top: 0.5em;
   position: absolute;
-  right: 6em;
+  right: 5em;
   display: inline-block;
 }
 #fbmedia:hover {
   transform: scale(1.1);
   transform-origin: 50% 50%;
 }
-
 #signin {
   color: rgba(0, 128, 0, 0.904);
   background-color: #f4f4f4;
