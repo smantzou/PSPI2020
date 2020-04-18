@@ -53,13 +53,6 @@ body {
   text-align: center;
   font-size: 30px;
 }
-.container a {
-  position: absolute;
-  text-decoration: none;
-  top: 53%;
-  left: 70%;
-  font-family: "Times New Roman", Times, serif;
-}
 .container {
   width: 35%;
   height: 50%;
