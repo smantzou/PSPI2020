@@ -102,7 +102,7 @@ div.dropdown-menu.show {
   color: #282828;
 }
 .big {
-  font-size: 140%;
+  font-size: 155%;
   font-weight: bold;
 }
 .bullets{
@@ -156,13 +156,13 @@ div.dropdown-menu.show {
   text-align: center;
   margin-top: 2%;
   width: 100%;
-  height: 60px; /*New by DAFAL */
+  height: 60px; 
 }
 #main-footer a {
   color: white;
   text-decoration: none;
-  margin: 0; /* New by DAFAL */
-  padding: 0; /* New by DAFAL */
+  margin: 0; 
+  padding: 0; 
 }
 #main-footer a:hover {
   color: lightgreen;
@@ -171,7 +171,7 @@ div.dropdown-menu.show {
   height: 3em;
   width: 3em;
 }
-/*New by DAFAL*/
+
 #main-footer p {
   margin: 0;
 }

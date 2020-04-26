@@ -66,13 +66,7 @@ div.dropdown-menu.show {
   text-decoration: none;
   text-transform: uppercase;
 }
-.nav {
-  display: flex;
-  justify-content: right;
-  list-style: none;
-  margin-right: 15%;
-  font-size: 18px;
-}
+
 .logo {
   flex: 1 1 auto;
   padding-left: 5%;
