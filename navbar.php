@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width" ,initial-scale=1.0,shrink-to-fit=no>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <title>
@@ -38,7 +38,8 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tools</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="./kcalcalculator.php">Calorie Calculator</a>
-              <a class="dropdown-item" type href="./bmi-calculator.php">BMI Calculator</a>
+              <a class="dropdown-item" href="./bmi-calculator.php">BMI Calculator</a>
+              <a class="dropdown-item" href="./training-assistant.php">Training Assistant</a>
            </div>
            
         </li>
