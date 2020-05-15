@@ -16,7 +16,7 @@ function initClient() {
  
 function execute(searchString) {
  
-    var arr_search = {
+    let arr_search = {
         "part": 'snippet',
         "type": 'video',
         "order": 'viewCount',
