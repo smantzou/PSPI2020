@@ -47,6 +47,9 @@
               
             </div>
           </nav>
-          <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+          <button onclick="topFunction()" id="myBtn" title="Go to top">
+          <span style='font-size:30px;'>&#8679;</span>
+          </button>
+          
           <script type="text/javascript" src="../top_button.js"></script>
         
