@@ -5,6 +5,9 @@ body {
   font-family: "Times New Roman", Times, serif;
   font-size: 20px;
 }
+area:hover {
+  cursor: pointer;
+}
 .box {
   background-image: url("./images/healthy_life.jpg");
   background-repeat: no-repeat;
