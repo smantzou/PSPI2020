@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width",initial-scale=1.0,shrink-to-fit=no> 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <title>Healthy Life</title>
-        <link rel="stylesheet" type="text/css" href="../article.css">
+        <link rel="stylesheet" href="../article.css?v=<?php echo time(); ?>">
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark ">
@@ -28,6 +28,9 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="../psychology.php">Psychology</a>
                 </li>
+                <li class="nav-item active">
+                     <a class="nav-link" href="../../contact.html">Contact Us</a>
+                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tools</a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -44,4 +47,6 @@
               
             </div>
           </nav>
-        </div>
+          <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+          <script type="text/javascript" src="../top_button.js"></script>
+        
