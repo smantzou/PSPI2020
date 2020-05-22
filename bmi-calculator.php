@@ -1,5 +1,5 @@
 <?php require 'navbar.php'; ?>
-<link rel="stylesheet" href="./bmi-style.css">
+<link rel="stylesheet" href="./bmi-style.css?v=<?php echo time(); ?>">
           <div class="categories">
             <h1>Welcome to the BMI Calculator tool.</h1>
             <img src="images/bmi_img.jpg" class="img-fluid" alt="Image of mesure">

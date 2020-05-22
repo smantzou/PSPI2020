@@ -18,7 +18,7 @@
     <title>
       Healthy Life
     </title>
-    <link rel="stylesheet" type="text/css" href="./categories.css" />
+    <link rel="stylesheet" href="./categories.css?v=<?php echo time(); ?>">
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -51,6 +51,9 @@
           <li class="nav-item active">
             <a class="nav-link" href="./psychology.php">Psychology</a>
           </li>
+          <li class="nav-item active">
+          <a class="nav-link" href="../contact.html">Contact Us</a>
+        </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tools</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">

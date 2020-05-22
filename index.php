@@ -1,5 +1,5 @@
 <?php require 'navbar.php'; ?>
-<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="./style.css?v=<?php echo time(); ?>">
   <div class="box"></div>
   <hr class="my-4">
   <div class="carousel-box">
