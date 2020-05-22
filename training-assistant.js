@@ -3,7 +3,9 @@
 const video_container = document.getElementById('video_container');
 
 function init() {
+
     gapi.load('client', initClient);
+
   }
  
 function initClient() {
@@ -21,6 +23,7 @@ function execute(searchString) {
         "type": 'video',
         "order": 'viewCount',
         "maxResults": '8',
+        "relevanceLanguage": 'en',
         "q": searchString
     };
  
@@ -35,7 +38,7 @@ function execute(searchString) {
             listItems.forEach(item => {
 
                 const videoId = item.id.videoId;
-                output += `<iframe width="50%" height="25%" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                output += `<iframe class="mr-1" width="auto" height="auto" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 
             });
  

@@ -8,6 +8,10 @@ body {
 area:hover {
   cursor: pointer;
 }
+#taheader {
+  background-color: rgba(0, 128, 0, 0.904);
+  color: white;
+}
 .box {
   background-image: url("./images/healthy_life.jpg");
   background-repeat: no-repeat;
