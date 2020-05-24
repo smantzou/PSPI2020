@@ -5,6 +5,13 @@ body {
   font-family: "Times New Roman", Times, serif;
   font-size: 20px;
 }
+area:hover {
+  cursor: pointer;
+}
+#taheader {
+  background-color: rgba(0, 128, 0, 0.904);
+  color: white;
+}
 .box {
   background-image: url("./images/healthy_life.jpg");
   background-repeat: no-repeat;
@@ -119,40 +126,14 @@ div.dropdown-menu.show {
 #main-footer a {
   color: white;
   text-decoration: none;
-  margin: 0; /* New by DAFAL */
-  padding: 0; /* New by DAFAL */
+  margin-right: 1%;
 }
 #main-footer a:hover {
   color: lightgreen;
 }
-#main-footer img {
-  height: 3em;
-  width: 3em;
-}
 /*New by DAFAL*/
 #main-footer p {
   margin: 0;
-}
-#instamedia {
-  padding-top: 0.5em;
-  position: absolute;
-  margin-bottom: 0;
-  right: 1em;
-  display: inline-block;
-}
-#instamedia:hover {
-  transform: scale(1.1);
-  transform-origin: 50% 50%;
-}
-#fbmedia {
-  padding-top: 0.5em;
-  position: absolute;
-  right: 5em;
-  display: inline-block;
-}
-#fbmedia:hover {
-  transform: scale(1.1);
-  transform-origin: 50% 50%;
 }
 #signin {
   color: rgba(0, 128, 0, 0.904);
@@ -222,12 +203,6 @@ div.dropdown-menu.show {
   }
   .col-md-3 {
     padding-left: 7em;
-  }
-  #instamedia {
-    right: 0.2em;
-  }
-  #fbmedia {
-    right: 3.2em;
   }
 }
 @media only screen and (max-width: 1544px) {

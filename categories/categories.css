@@ -164,8 +164,7 @@ div.dropdown-menu.show {
 #main-footer a {
   color: white;
   text-decoration: none;
-  margin: 0; 
-  padding: 0; 
+  margin-right: 1%; 
 }
 #main-footer a:hover {
   color: lightgreen;
