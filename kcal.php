@@ -45,7 +45,6 @@
     </div>
 
     <!-- Shows the calculated calories on screen /calCalc -->
-    <!--<div id="show-result"></div>-->
     <div class="footer" id="show-result"></div>
 
     <!-- Javascript code-->
