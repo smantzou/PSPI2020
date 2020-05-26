@@ -59,6 +59,7 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="../kcal.php">Calorie Calculator</a>
                 <a class="dropdown-item" type href="../bmi-calculator.php">BMI Calculator</a>
+                <a class="dropdown-item" href="../training-assistant.php">Training Assistant</a>
              </div>
           </li>
           <li class="nav-item active">
