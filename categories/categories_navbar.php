@@ -52,13 +52,14 @@
             <a class="nav-link" href="./psychology.php">Psychology</a>
           </li>
           <li class="nav-item active">
-          <a class="nav-link" href="../contact.html">Contact Us</a>
+          <a class="nav-link" href="../contact.php">Contact Us</a>
         </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tools</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="../kcalcalculator.php">Calorie Calculator</a>
+                <a class="dropdown-item" href="../kcal.php">Calorie Calculator</a>
                 <a class="dropdown-item" type href="../bmi-calculator.php">BMI Calculator</a>
+                <a class="dropdown-item" href="../training-assistant.php">Training Assistant</a>
              </div>
           </li>
           <li class="nav-item active">

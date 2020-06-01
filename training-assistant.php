@@ -1,12 +1,8 @@
-        <?php require 'navbar.php'; ?>
+        <?php require 'navbar.php';?>
 
-        <link rel="stylesheet" type="text/css" href="./style.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
 
-        <div class="jumbotron">
-
-            <p class="lead text-center">Welcome to our training assistant tool. Click on the muscle you wanna learn how to train.</p>
-
-        </div>
+        <h1 class="text-center" id="taheader">Welcome to our training assistant tool. Click on the muscle you wanna learn how to train.</h1>
 
         <div class="container mb-5">
 
@@ -39,11 +35,11 @@
                         <area alt="calves_text_F" title="" coords="60,257,102,274" shape="rect" onclick="execute('calves workout')">
                         <area alt="calves_text_R" title="" coords="190,694,234,677" shape="rect" onclick="execute('calves workout')">
                         
-                        <area alt="trap_FL" title="Traps" coords="174,59,192,75" shape="rect" onclick="execute('traps workout')">
-                        <area alt="trap_FR" title="Traps" coords="216,60,234,75" shape="rect" onclick="execute('traps workout')">
-                        <area alt="traps_R" title="Traps" coords="54,472,123,497" shape="rect" onclick="execute('traps workout')">
-                        <area alt="traps_text_F" title="" coords="66,32,100,47" shape="rect" onclick="execute('traps workout')">
-                        <area alt="traps_text_R" title="" coords="191,416,228,433" shape="rect" onclick="execute('traps workout')">
+                        <area alt="trap_FL" title="Traps" coords="174,59,192,75" shape="rect" onclick="execute('trapezius workout')">
+                        <area alt="trap_FR" title="Traps" coords="216,60,234,75" shape="rect" onclick="execute('trapezius workout')">
+                        <area alt="traps_R" title="Traps" coords="54,472,123,497" shape="rect" onclick="execute('trapezius workout')">
+                        <area alt="traps_text_F" title="" coords="66,32,100,47" shape="rect" onclick="execute('trapezius workout')">
+                        <area alt="traps_text_R" title="" coords="191,416,228,433" shape="rect" onclick="execute('trapezius workout')">
 
                         <area alt="hamstring_L" title="Hamstrings" coords="48,629,89,685" shape="rect" onclick="execute('hamstrings workout')">
                         <area alt="hamstring_R" title="Hamstrings" coords="93,629,134,685" shape="rect" onclick="execute('hamstrings workout')">
@@ -95,7 +91,7 @@
         <script type="text/javascript" src="./training-assistant.js"></script>
         <script async="" defer="" onload="this.onload=function(){};init()" src="https://apis.google.com/js/api.js?"></script>
        
-        <?php require 'footer.php'; ?>
+        <?php require 'footer.php';?>
 
     </body>
 
