@@ -199,3 +199,22 @@ div.dropdown-menu.show {
     margin-left: 0%;
   }
 }
+@media only screen and (max-width: 500px) {
+  .categories{
+    width: 90%;
+  }
+  .categories h1{
+    font-size: 180%;
+  }
+  #bmiform input {
+    margin-bottom: 1%;
+    margin-left: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .container-fluid{
+    font-size: 90%;
+  }
+}
+

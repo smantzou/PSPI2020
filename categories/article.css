@@ -203,3 +203,29 @@ div.dropdown-menu.show {
     margin-top: 115px;
   }
 }
+@media only screen and (max-width: 500px) {
+  .categories{
+    width: 90%;
+  }
+  .categories h1{
+    font-size: 180%;
+  }
+  .big{
+    font-size: 120%;
+  }
+  .small{
+    font-size: 100%;
+  }
+  .bullets{
+    font-size: 100%;
+  }
+  .writer{
+    font-size: 90%;
+  }
+  .article{
+    width: 90%;
+  }
+  .categories h2{
+    font-size: 160%;
+  }
+}
