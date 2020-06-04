@@ -88,6 +88,8 @@ div.dropdown-menu.show {
   margin-left: auto;
   margin-right: auto;
   margin-top: 3%;
+
+  overflow: hidden;                                       /*xamos SOS*/
 }
 .bg-success a {
   color: white;
@@ -113,6 +115,29 @@ div.dropdown-menu.show {
   color: #282828;
   min-height: 120px;
 }
+.text-center{
+  margin-top: 2%;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 3%;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 1em;
+}
+/*
+.container{
+  border: 1px solid rgba(0, 128, 0, 0.904);
+}
+.row{
+  border: 1px solid rgba(0, 128, 0, 0.904);
+}
+.col-md-3{
+  border: 1px solid rgba(0, 128, 0, 0.904);
+}
+.carousel-box{
+  border: 1px solid rgba(0, 128, 0, 0.904);
+}
+*/
 /* Footer*/
 #main-footer {
   font-size: 18px;
@@ -167,42 +192,60 @@ div.dropdown-menu.show {
     font-size: 17px;
   }
 }
+
 @media only screen and (max-width: 1200px) {
-  .b1 {
-    width: 50%;
-    float: none;
-  }
   #signin {
     color: rgba(0, 128, 0, 0.904);
     background-color: #f4f4f4;
   }
   .carousel-item p {
-    font-size: 19px;
+    display: none;
   }
   h1.bg-success {
     font-size: 22px;
   }
-  .carousel-inner {
+  .row h1{
+    font-size: 150%;
+  }
+  .row h2{
+    font-size: 130%;
+  }
+  /*.carousel-inner {
     width: 130%;
     max-height: 130%;
     margin-right: auto;
-  }
+  }*/
 }
 
 @media only screen and (max-width: 768px) {
-  .carousel-item p {
-    display: none;
+  .carousel-box{
+    width: 60%;
   }
-  .carousel-inner {
+  .text-center{
+    font-size: 120%;
+  }
+  /*.carousel-inner {
     width: 150%;
     max-height: 150%;
     margin-right: auto;
-  }
+  }*/
   h1.bg-success {
     font-size: 17px;
   }
-  .col-md-3 {
-    padding-left: 7em;
+  .row{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .col-md-3{
+    
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1%;
+    padding-right: 1%;
+
+    /*padding-left: 7em;*/
   }
 }
 @media only screen and (max-width: 1544px) {
@@ -224,4 +267,32 @@ div.dropdown-menu.show {
   .col-md-3 h1{
     font-size: 180%;
   }
+  .row{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .col-md-3{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+  .small{
+    font-size: 100%;
+  }
+  .writer{
+    font-size: 90%;
+  }
+  /*.row h1{
+    font-size: 160%;
+  }
+  .row h2{
+    font-size: 140%;
+  }*/
+  .carousel-box{
+    width: 70%;
+  }
+
 }

@@ -237,4 +237,7 @@ div.dropdown-menu.show {
   .categories{
     width: 90%;
   }
+  .header{
+    font-size: 220%;
+  }
 }

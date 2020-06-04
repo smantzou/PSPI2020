@@ -3,6 +3,27 @@ const box = document.getElementById("show-result");
 const resultp = document.createElement("p");
 var foodcalInput = document.getElementById("foodcalories");
 var foodquantityInput = document.getElementById("foodquantity");
+
+const form = document.getElementById("forma");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  // console.log(e);
+  const { foodInput, foodcalInput, foodquantityInput } = getCaloriesFormData();
+
+  fetch("/api/addCal", {
+    method: "POST",
+    headers: {
+      "Content-Type": "Application/json",
+    },
+    body: JSON.stringify({
+      totalCal: showhelpvariable,
+    }),
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(showhelpvariable);
+    });
+});
 let showhelpvariable = 0;
 flag3 = false;
 // Adds up the total calories to the bottom of the page
@@ -16,31 +37,52 @@ function calCalc() {
   resultp.style.color = "rgba(0, 128, 0, 0.904)";
   resultp.style.fontSize = "20px";
   resultp.style.textAlign = "center";
-  resultp.textContent = `Your Calories for today are: ${showhelpvariable.toFixed(
-    1
-  )}`;
   resultp.style.backgroundColor = "white";
-
   box.appendChild(resultp);
 }
 
 //Adds the food with its information to the proper timezone-table
-let rowsCounter = 0;
 
-function putValuesInTable() {
-  var daily = document.querySelector(".timezone-box");
+function getCaloriesFormData() {
   var foodInput = document.getElementById("food").value;
   var foodcalInput = document.getElementById("foodcalories").value;
   var foodquantityInput = parseFloat(
     document.getElementById("foodquantity").value
   );
+
+  return {
+    foodInput,
+    foodcalInput,
+    foodquantityInput,
+  };
+}
+
+function putValuesInTable() {
+  var daily = document.querySelector(".timezone-box");
+
+  const { foodInput, foodcalInput, foodquantityInput } = getCaloriesFormData();
+
   var timezoneInput = document.getElementById("timezones").value;
+  var deleteButton = document.createElement("BUTTON");
+  deleteButton.innerText = "x";
+  deleteButton.style.color = "#fff";
+  deleteButton.style.fontWeight = "400";
+  deleteButton.style.width = "2em";
+  deleteButton.style.fontFamily = "Arial, sans-serif";
+  deleteButton.style.backgroundColor = "red";
+  deleteButton.style.marginLeft = "33%";
+  deleteButton.style.textAlign = "center";
+  deleteButton.style.textDecoration = "none";
+  deleteButton.style.borderRadius = "4px";
+  deleteButton.style.border = "1px solid black";
+  deleteButton.style.cursor = "pointer";
 
   var tableHelp = [
     foodInput,
     foodcalInput * foodquantityInput,
     foodquantityInput,
     timezoneInput,
+    deleteButton.outerHTML,
   ];
 
   var table = document.getElementById("table");
@@ -55,11 +97,8 @@ function putValuesInTable() {
       var foodExists = row.cells[0].innerHTML;
       var zoneExists = row.cells[3].innerHTML;
 
-      //console.log(caloriesSame);
-
       if (foodInput == foodExists) {
         var caloriesSame = row.cells[1].innerHTML / row.cells[2].innerHTML;
-        //console.log(caloriesSame);
         if (caloriesSame != foodcalInput && flag3 == false) {
           if (
             confirm(
@@ -78,6 +117,9 @@ function putValuesInTable() {
             flag2 = true;
           }
         }
+        resultp.textContent = `Your Calories for today are: ${showhelpvariable.toFixed(
+          1
+        )}`;
       }
       if (
         foodInput == foodExists &&
@@ -99,28 +141,45 @@ function putValuesInTable() {
     for (k of tableHelp) {
       cell = row.insertCell();
       cell.innerHTML = k;
+      if (cell.innerText == "x") {
+        cell.addEventListener("click", function () {
+          deleteRow(this);
+        });
+      }
     }
+    resultp.textContent = `Your Calories for today are: ${showhelpvariable.toFixed(
+      1
+    )}`;
     sortTable();
   }
 
-  if (table.rows.length > 4) {
-    daily.style.marginTop = "40em";
+  if (table.rows.length > 3) {
+    daily.style.marginTop = "43em";
     if (table.rows.length > 9) {
-      daily.style.marginTop = "45em";
+      daily.style.marginTop = "48em";
       if (table.rows.length > 13) {
-        daily.style.marginTop = "55em";
-        if (table.rows.length > 22) {
-          daily.style.marginTop = "65em";
-          if (table.rows.length > 30) {
-            daily.style.marginTop = "75em";
-            if (table.rows.length > 38) {
-              daily.style.marginTop = "90em";
+        daily.style.marginTop = "58em";
+        if (table.rows.length > 21) {
+          daily.style.marginTop = "68em";
+          if (table.rows.length > 29) {
+            daily.style.marginTop = "78em";
+            if (table.rows.length > 37) {
+              daily.style.marginTop = "93em";
             }
           }
         }
       }
     }
   }
+}
+
+function deleteRow(r) {
+  var i = r.parentNode.rowIndex;
+  showhelpvariable = showhelpvariable - table.rows[i].cells[1].innerHTML;
+  resultp.textContent = `Your Calories for today are: ${showhelpvariable.toFixed(
+    1
+  )}`;
+  table.deleteRow(i);
 }
 
 function sortTable() {

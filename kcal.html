@@ -53,19 +53,19 @@
       </ul>
     </div>
   </nav>
-  <link rel="stylesheet" type="text/css" href="./kcalcalculatorstyle.css">
 
+    <link rel="stylesheet" type="text/css" href="./kcalcalculatorstyle.css">
     <div class="container">
       <h1 class="header">Calculate your Calories</h1>
       <!-- Calculation formbox-->
-      <form class="calcbox">
+      <form class="calcbox" id="forma">
         <h2>Food Insertion</h2>
         <div class="form-group">
           <label id="foodlabel" for="foods">Food</label>
-          <input id='food' type="text" name="" title="foods" pattern="[a-zA-Z]*">
+          <input id='food' type="text" name="food" title="foods" pattern="[a-zA-Z]*">
         <div class="form-group">
           <label id="foodcalorieslabel">Calories</label>
-          <input id='foodcalories' type="number" value="0" > 
+          <input id='foodcalories' name="fcal" type="number" value="0" > 
         </div class="form-group">
           <label id="foodquantitylabel">Quantity</label>
           <input id='foodquantity' type="number" value="0">
@@ -80,7 +80,7 @@
             <option value="Dinner">Dinner</option>
           </select>
         </div>
-          <button id="calbtn" type="button" class="btn btn-dark">Submit</button> 
+          <input id="calbtn" type="submit" class="btn btn-dark" value="Submit"> 
       </form>
     </div>
 
@@ -99,9 +99,20 @@
     </div>
 
     <!-- Shows the calculated calories on screen /calCalc -->
-    <div class="footer" id="show-result"></div>
+    <div class="footer" id="show-result" name="totalCals"></div>
 
     <!-- Javascript code-->
     <script type="text/javascript" src="./kcal.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+    
   </body>
 </html>

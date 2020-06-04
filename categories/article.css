@@ -228,4 +228,11 @@ div.dropdown-menu.show {
   .categories h2{
     font-size: 160%;
   }
+  .categories h3{
+    font-size: 130%;
+  }
+  .header{
+    font-size: 220%;
+  }
+  
 }
