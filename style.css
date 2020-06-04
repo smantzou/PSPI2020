@@ -184,6 +184,17 @@ div.dropdown-menu.show {
   text-decoration: none;
   color: rgba(0, 128, 0, 0.904);
 }
+
+@media only screen and (max-width: 1544px) {
+  .logo {
+    margin-left: 0%;
+  }
+}
+@media only screen and (max-width: 1485px) {
+  .categories {
+    margin-top: 70px;
+  }
+}
 @media only screen and (max-width: 1400px) {
   .carousel-item p {
     font-size: 17px;
@@ -192,7 +203,6 @@ div.dropdown-menu.show {
     font-size: 17px;
   }
 }
-
 @media only screen and (max-width: 1200px) {
   #signin {
     color: rgba(0, 128, 0, 0.904);
@@ -205,18 +215,17 @@ div.dropdown-menu.show {
     font-size: 22px;
   }
   .row h1{
-    font-size: 150%;
+    font-size: 140%;
   }
   .row h2{
-    font-size: 130%;
+    font-size: 120%;
   }
-  /*.carousel-inner {
-    width: 130%;
-    max-height: 130%;
-    margin-right: auto;
-  }*/
 }
-
+@media only screen and (max-width: 1100px) {
+  .categories {
+    margin-top: 115px;
+  }
+}
 @media only screen and (max-width: 768px) {
   .carousel-box{
     width: 60%;
@@ -224,11 +233,6 @@ div.dropdown-menu.show {
   .text-center{
     font-size: 120%;
   }
-  /*.carousel-inner {
-    width: 150%;
-    max-height: 150%;
-    margin-right: auto;
-  }*/
   h1.bg-success {
     font-size: 17px;
   }
@@ -238,29 +242,11 @@ div.dropdown-menu.show {
     margin-right: auto;
   }
   .col-md-3{
-    
     width: 75%;
     margin-left: auto;
     margin-right: auto;
     padding-left: 1%;
     padding-right: 1%;
-
-    /*padding-left: 7em;*/
-  }
-}
-@media only screen and (max-width: 1544px) {
-  .logo {
-    margin-left: 0%;
-  }
-}
-@media only screen and (max-width: 1485px) {
-  .categories {
-    margin-top: 70px;
-  }
-}
-@media only screen and (max-width: 1100px) {
-  .categories {
-    margin-top: 115px;
   }
 }
 @media only screen and (max-width: 500px) {
@@ -285,12 +271,6 @@ div.dropdown-menu.show {
   .writer{
     font-size: 90%;
   }
-  /*.row h1{
-    font-size: 160%;
-  }
-  .row h2{
-    font-size: 140%;
-  }*/
   .carousel-box{
     width: 70%;
   }
