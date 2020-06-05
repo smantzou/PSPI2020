@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+   
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
@@ -16,52 +17,38 @@
 
   <body>
     <div class="flex-container">
-      <div class="header-box">
+      <div>
         <a class="navbar-brand logo" href="./index.html">Healthy Life</a>
       </div>
       <div class="container">
-        
-        <h2 id="Heading">Log in to your account</h2>
+        <img class="avatar" src="./images/avatar.png" alt="avatar" />
+        <h2 id="Heading">Create a new account</h2>
         <div class="formbox">
-          <form>
-            <input type="text" name="" placeholder="Username" id="username" />
-            <input type="text" name="" placeholder="Email" id="email" />
+          <div>
+            <input type="text" name="name" placeholder="Username" id="username" />
+            <input type="text" name="email" placeholder="Email" id="email" />
             <input
               type="password"
-              name=""
+              name="password"
               placeholder="Password"
               id="password"
             />
             <input
               type="password"
-              name=""
+              name="confirmpassword"
               placeholder="Confirm Password"
               id="confirm-password"
             />
-          </form>
+            <div class="send">
+              <input type="submit" value="Sign Up" id="btn-submit" />
+            </div>
+          </div>
         </div>
-        <div class="send">
-          <input type="submit" name="" value="Sign In" id="btn-submit" />
-        </div>
+ 
         <div>
-          <button class="btn" type="button" id="button1">
-            Don't have an account?
-          </button>
-        </div>
-        <div>
-          <h5 id="remember">
-            Remembered your password?
-          </h5>
-        </div>
-        <div>
-          <button class="btn" type="button" id="button2">
-            Forgot password?
-          </button>
-        </div>
-        <div>
-          <h4 id="text-lost">
-            Enter your email and we'll send you a link to create a new password.
-          </h4>
+          <a href="sign-in-up-lost.html"><button class="btn btn-primary" type="button" id="button1">
+            Sign in
+          </button></a>
         </div>
         <br />
         <div>
@@ -70,7 +57,9 @@
       </div>
     </div>
 
-    <script src="sign-in-up-lost.js"></script>
+    
+    
+    
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -86,5 +75,7 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
+    <script src="server.js"></script>
+    <script src="sign-up.js" ></script>
   </body>
 </html>
