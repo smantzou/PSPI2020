@@ -115,6 +115,7 @@ div.dropdown-menu.show {
   color: #282828;
   min-height: 120px;
 }
+/*training-assistant*/
 .text-center{
   margin-top: 2%;
   margin-left: 1%;
@@ -124,20 +125,6 @@ div.dropdown-menu.show {
   padding-right: 2%;
   border-radius: 1em;
 }
-/*
-.container{
-  border: 1px solid rgba(0, 128, 0, 0.904);
-}
-.row{
-  border: 1px solid rgba(0, 128, 0, 0.904);
-}
-.col-md-3{
-  border: 1px solid rgba(0, 128, 0, 0.904);
-}
-.carousel-box{
-  border: 1px solid rgba(0, 128, 0, 0.904);
-}
-*/
 /* Footer*/
 #main-footer {
   font-size: 18px;
@@ -161,6 +148,9 @@ div.dropdown-menu.show {
   margin: 0;
 }
 #signin {
+  width: fit-content;
+  padding-left: 3px;
+  padding-right: 3px;
   color: rgba(0, 128, 0, 0.904);
   background-color: #f4f4f4;
   border-radius: 0.5em;

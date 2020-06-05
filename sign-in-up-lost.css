@@ -63,17 +63,18 @@ body {
   border-radius: 50px;
 }
 .send input[type="submit"]:hover {
-  cursor: pointer;
   background: lightgreen;
   color: white;
 }
 .btn{
   border: none;
+  outline: none;
   background-color: #f4f4f4;
   color: rgba(0, 128, 0, 0.904);
 }
 .btn:hover{
   background-color: lightgreen;
+  color: white;
 }
 .container input {
   margin-top: 2%;
