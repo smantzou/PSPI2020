@@ -6,9 +6,9 @@ const bodyParser  =  require('body-parser')
 const path        =  require('path')
 
 
-const EmployeeRoute = require('../routes/employee')
-const AuthRoute     = require('../routes/auth')
-const LostpassRoute = require('../routes/lostpass')
+const EmployeeRoute = require('./routes/employee')
+const AuthRoute     = require('./routes/auth')
+const LostpassRoute = require('./routes/lostpass')
 
 mongoose.set('useFindAndModify', false);
 mongoose.connect('mongodb://localhost:27017/testdb',{ useNewUrlParser: true,useUnifiedTopology:true })
@@ -46,7 +46,7 @@ app.get('/', function(req,res){
     res
 
         .status(200)
-        .sendFile(path.join(__dirname, '../public', 'index.php'));
+        .sendFile(path.join(__dirname, '../public', 'index.html'));
 })
 
 
