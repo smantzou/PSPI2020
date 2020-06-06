@@ -67,6 +67,7 @@ body {
   color: white;
 }
 .btn{
+  margin-top: 3%;
   border: none;
   outline: none;
   background-color: #f4f4f4;
@@ -88,6 +89,7 @@ body {
   font-size: 25px;
   text-align: center;
 }
+/*
 #email {
   display: none;
 }
@@ -100,6 +102,7 @@ body {
 #remember {
   visibility: hidden;
 }
+*/
 #button1{
   margin-top: 3%;
 }
