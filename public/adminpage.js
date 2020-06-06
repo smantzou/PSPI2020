@@ -18,7 +18,6 @@ const onLoad = ()=>{
                 
                 const newRow = document.createElement('div')
                 newRow.classList.add('row')
-                const colPhoto = document.createElement('div')
                 const colID = document.createElement('div')
                 const colName =document.createElement('div')
                 const colEmail = document.createElement('div')
@@ -42,7 +41,6 @@ const onLoad = ()=>{
                 
 
                 colID.classList.add('col-1-sm')
-                colPhoto.classList.add('col-2')
                 colName.classList.add('col-2')
                 colEmail.classList.add('col-2')
                 colEdit.classList.add('col-1')
@@ -64,8 +62,6 @@ const onLoad = ()=>{
                 editButton.addEventListener("click", onClickPencil)
                 i++
                 inputId.id = i
-                i++
-                colPhoto.id = i
                 i++
                 inputName.id =i
                 i++
@@ -91,13 +87,12 @@ const onLoad = ()=>{
                 inputPass.setRangeText(element.password)
                 colPass.append(inputPass)
                
-                colPhoto.append()
+                
                
                 colEdit.appendChild(destroyButton)
                 colEdit.appendChild(saveButton)
 
 
-                newRow.appendChild(colPhoto)
                 newRow.appendChild(colID)
                 newRow.appendChild(colName)
                 newRow.appendChild(colEmail)
@@ -126,14 +121,13 @@ function onClickPencil() {
     let buttonId = parseInt(event.target.id) 
     console.log(buttonId+1)
     const eventButton = document.getElementById(`${buttonId}`)
-    const identifier = document.getElementById(`${buttonId+1}`)
-    const photo = document.getElementById(`${buttonId+2}`)
-    const name = document.getElementById(`${buttonId+3}`)
-    const email = document.getElementById(`${buttonId+4}`)
-    const pass = document.getElementById(`${buttonId+5}`)
-    const edit = document.getElementById(`${buttonId+6}`)
-    const saveButton = document.getElementById(`${buttonId+7}`)
-    const destroyButton = document.getElementById(`${buttonId+8}`)
+    
+    const name = document.getElementById(`${buttonId+2}`)
+    const email = document.getElementById(`${buttonId+3}`)
+    const pass = document.getElementById(`${buttonId+4}`)
+    const edit = document.getElementById(`${buttonId+5}`)
+    const saveButton = document.getElementById(`${buttonId+6}`)
+    const destroyButton = document.getElementById(`${buttonId+7}`)
     
     
     name.removeAttribute('readonly')
@@ -152,7 +146,7 @@ function onClickPencil() {
 
 function onDestroy(){
     let buttonId = parseInt(event.target.id) 
-    const userIDField = document.getElementById(`${buttonId-7}`)
+    const userIDField = document.getElementById(`${buttonId-6}`)
     const userID = userIDField.value
 
     fetch('/api/destroy',{
@@ -168,24 +162,22 @@ function onDestroy(){
     .then(response => response.json())
     .then(response =>{
         if(response.status){
-            alert(respone.message)
+            
             setTimeout(function(){
-                window.location.href = '/'
-              },1000)
+                window.location.href = '/admin'
+              },600)
         }
         else{
             alert(message)
         }
     })
-    .catch(error =>{
-        alert('An unexpected Error occured!')
-    })
+    
 
 }
 
 function onSave(){
     let buttonId = parseInt(event.target.id) 
-    const userID = document.getElementById(`${buttonId-6}`).value
+    const userID = document.getElementById(`${buttonId-5}`).value
     const name =  document.getElementById(`${buttonId-4}`).value
     const email =  document.getElementById(`${buttonId-3}`).value
     const password =  document.getElementById(`${buttonId-2}`).value
@@ -204,25 +196,70 @@ function onSave(){
     .then(response => response.json())
     .then(response =>{
         if(response.status){
-            alert(respone.message)
+            
             setTimeout(function(){
-                window.location.href = '/'
-              },1000)
+                window.location.href = '/admin'
+              },600)
         }
         else{
             alert(message)
         }
     })
-    .catch(error =>{
-        alert('An unexpected Error occured!')
-    })
+    
 
 
 }
-// 1. Na mporoyme na ftiaxnoyme xrhsth apo ayth th selida
+
 // 2.Na lysoyme to wtf error ths mongoose 
-// 3.Kai na erxontai ta password unhashed
-// 4.Na exei h selida protected router kai na eisai prosbasimh mono apo to login toy admin
-// 5.Na mporei o admin mesw ths selida na paraksei alloys admins 
-// 6.Na bgaloyme thn photo 
+
+
+ 
+function onSubmit() {
+    event.preventDefault()
+    const name = document.querySelector('#username').value
+    const email = document.querySelector('#email').value
+    const password = document.querySelector('#password').value
+    const confirmpassword = document.querySelector('#password').value
+    let adminStatus = false
+    if(document.getElementById('admin').checked) {
+         adminStatus = true
+        
+      }else if(document.getElementById('notAdmin').checked) {
+         adminStatus = false
+      }
+      else{
+          return alert('Select Admin Status!')
+      }
+      fetch('/api/register', {
+        method: 'POST', 
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(
+          {
+            name,email,password,confirmpassword,adminStatus
+          }
+        ),
+      })
+      .then(response => response.json())
+      .then(response => {
+        if(response.status){
+            
+            
+            setTimeout(function(){
+                window.location.href = 'adminpage.html'
+            },1000)
+          
+        }
+        else{
+          alert(message)
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }
+
+const buttonSubmit = document.getElementById('btn-submit')
+buttonSubmit.addEventListener('click',onSubmit)
 const container = document.getElementById('container')

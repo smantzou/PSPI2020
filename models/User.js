@@ -12,6 +12,9 @@ const userSchema = new Schema(
     password: {
       type: String,
     },
+    adminstatus : {
+      type : Boolean
+    },default : false,
     calories: [
       {
         date: {
@@ -23,6 +26,7 @@ const userSchema = new Schema(
       },
     ],
     default: [],
+   
   },
   { timestamps: true }
 );

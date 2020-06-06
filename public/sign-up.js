@@ -5,7 +5,7 @@ const onSumbitHandler = (event)=>{
   const email = document.querySelector('#email').value
   const password = document.querySelector('#password').value
   const confirmpassword = document.querySelector('#confirm-password').value
-    fetch('http://localhost:3000/api/register', {
+    fetch('/api/register', {
       method: 'POST', 
       headers: {
         'Content-Type': 'application/json',

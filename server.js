@@ -46,7 +46,13 @@ app.get('/', function(req,res){
     res
 
         .status(200)
-        .sendFile(path.join(__dirname, '../public', 'index.html'));
+        .sendFile(path.join(__dirname, './public', 'index.html'));
+})
+app.get('/admin',function(req,res){
+    res
+
+        .status(200)
+        .sendFile(path.join(__dirname, './public', 'adminpage.html'));
 })
 
 

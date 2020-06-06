@@ -21,7 +21,8 @@ const index = (req,res,next) => {
 }
 const destroy = (req,res,next) => {
     let userID = req.body.userID
-    User.findOneAndDelete(userID)
+    
+    User.findByIdAndRemove(userID)
     .then(() =>{
         res.json({
             status : true,
@@ -44,20 +45,40 @@ const update = (req,res,next) => {
         password : req.body.password
 
     }
-
-    User.findOneAndUpdate(userID,{$set: updatedData})
-    .then(() =>{
-        res.json({
-            status : true,
-            message : 'User updated successfully!'
-        })
+    User.findOne({name : updatedData.name},function(err,existingUSer){
+        if(existingUSer==null){
+            User.findOne({email:updatedData.email},function(err,existingEmail){
+                if(existingEmail==null){
+                    User.findByIdAndUpdate(userID,{$set: updatedData},{new : true})
+                    .then(() =>{
+                    res.json({
+                        status : true,
+                        message : 'User updated successfully!'
+                        })
+                    })
+                    .catch(error =>{
+                        res.json({
+                        status : false,
+                        message : 'An error has Occured!'
+                        })
+                    })
+                }
+                else{
+                    res.json({
+                        status : false,
+                        message : "Email already exists"
+                    })
+                }
+            })
+        }
+        else{
+            res.json({
+                status : false,
+                message : "Username already exists"
+            })   
+        }
     })
-    .catch(error =>{
-        res.json({
-            status : false,
-            message : 'An error has Occured!'
-        })
-    })
+    
 }
 
 
@@ -83,7 +104,8 @@ const register = (req,res,next) =>{
                             let user = new User ({
                                 name : req.body.name,
                                 email: req.body.email,
-                                password : hashedPass
+                                password : hashedPass,
+                                adminstatus : req.body.adminStatus
                             })
                             user.save()
                             .then(user => {
@@ -110,6 +132,7 @@ const register = (req,res,next) =>{
             }
         })
         
+        
     }
     
     
@@ -131,9 +154,14 @@ const login = (req,res,next) =>{
                     })
                 }
                 if(result){
+                    if(user.adminstatus){
+                      return  res.json({status:true,message:"Signed In as Admin!",admin :true})
+                        
+                    }
+                    else{
                     let token = jwt.sign({name:user.name},'AzQ,PI)0(',{expiresIn:'1h'})
                     res.json({status:true,message:"Sign In Complete!"})
-   
+                    }
                 }
                 else{
                     res.json({

@@ -18,20 +18,29 @@ const onSumbitHandler = (event)=>{
       .then(response => response.json())
       .then(response => {
         if(response.status){
+          if(response.admin){
+          message.style.visibility = "visible";
+          message.classList.add('success');
+          message.innerHTML = response.message;
+          setTimeout(function(){
+            window.location.href = '/admin'
+          },1000)
+          }
+          else{
           message.style.visibility = "visible";
           message.classList.add('success');
           message.innerHTML = response.message;
           setTimeout(function(){
             window.location.href = '/'
           },1000)
-          
+        }
         }
         else{
           message.style.visibility = "visible";
           message.classList.add('error');
           message.innerHTML = response.message;
           setTimeout(function(){
-            window.location.href = '/sign-in-up-lost.html'
+            window.location.href = '/sign-in.html'
           },1000)
         }
       })
