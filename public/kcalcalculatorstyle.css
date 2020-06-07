@@ -445,15 +445,6 @@ ul {
   list-style-type: none;
 }
 
-body {
-  font-family: "Lato", sans-serif;
-}
-
-* {
-  margin: 0;
-  box-sizing: border-box;
-}
-
 .wrapper {
   margin-top: 40em;
   width: 100vw;

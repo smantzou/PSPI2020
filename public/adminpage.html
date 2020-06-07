@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-          <link rel="stylesheet" href="./style.css">
+          <link rel="stylesheet" href="./adminpage.css">
         <title>
           Healthy Life
         </title>
@@ -39,7 +39,7 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tools</a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="./kcal.html">Calorie Calculator</a>
+                      <a class="dropdown-item" href="./kcalcalculator.html">Calorie Calculator</a>
                       <a class="dropdown-item" href="./bmi-calculator.html">BMI Calculator</a>
                       <a class="dropdown-item" href="./training-assistant.html">Training Assistant</a>
                    </div>
@@ -53,24 +53,31 @@
             </div>
             
         </nav>
+        <h2 class="h2-header">Users</h2>
+        <div class="headers">
+          <h3>ID</h3>
+          <h3>Username</h3>
+          <h3>Email</h3>
+          <h3>Password</h3>
+        </div>
         <div class="container-fluid" id="container">
             
-
         </div>
         <br>
         <div>
-          <div>
+          <h2 class="h2-header">Create new User or Admin</h2>
+          <div class="input-box">
             <input type="text" name="name" placeholder="Username" id="username" />
             <input type="text" name="email" placeholder="Email" id="email" />
             <input type="password" name="password" placeholder="Password" id="password"/>
-            <div>
+            <div class="bullet-field">
             <input type="radio" id="admin" name="adminOrNot" value="admin">
             <label for="admin">Admin</label><br>
             <input type="radio" id="notAdmin" name="adminOrNot" value="notAdmin">
             <label for="notAdmin">User</label><br>
             </div>
             <div class="send">
-              <input type="submit" value="Sign Up" id="btn-submit" />
+              <input type="submit" value="Create" id="btn-submit" />
             </div>
           </div>
 
@@ -95,6 +102,16 @@
             Copyright &copy; 2020 Healthy Life
         </p>
     </footer>   
-    <script src="./adminpage.js" onload="onLoad()"></script>     
+    <script src="./adminpage.js" onload="onLoad()"></script>    
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script> 
     </body>
 </html>

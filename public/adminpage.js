@@ -18,34 +18,38 @@ const onLoad = ()=>{
                 
                 const newRow = document.createElement('div')
                 newRow.classList.add('row')
+
                 const colID = document.createElement('div')
                 const colName =document.createElement('div')
                 const colEmail = document.createElement('div')
                 const colPass = document.createElement('div')
-                const colEdit = document.createElement('div')
+                const colEdit = document.createElement('div') 
+
                 const editButton = document.createElement('button')
+                editButton.title = 'Edit'
                 const destroyButton = document.createElement('button')
+                destroyButton.title = 'Delete'
                 const saveButton = document.createElement('button')
+                saveButton.title = 'Save'
+
                 const inputId = document.createElement('input')
                 inputId.setAttribute('readonly',true)
                 const inputName = document.createElement('input')
                 inputName.setAttribute('readonly',true)
-                
                 const inputEmail = document.createElement('input')
                 inputEmail.setAttribute('readonly',true)
-                
                 const inputPass = document.createElement('input')
                 inputPass.setAttribute('readonly',true)
                 
                 
-                
 
-                colID.classList.add('col-1-sm')
-                colName.classList.add('col-2')
-                colEmail.classList.add('col-2')
-                colEdit.classList.add('col-1')
-                colPass.classList.add('col-2')
-                editButton.classList.add('col-1')
+                colID.classList.add('data-field')
+                colName.classList.add('data-field')
+                colEmail.classList.add('data-field')
+                colEdit.classList.add('edit-field') 
+                colPass.classList.add('data-field')
+                
+                editButton.classList.add('edit-button')
                 editButton.classList.add('btn-info')
                 editButton.innerHTML = '&#9998;'
                 destroyButton.classList.add('btn-danger')
