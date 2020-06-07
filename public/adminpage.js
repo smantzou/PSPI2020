@@ -2,7 +2,7 @@
 
 const onLoad = ()=>{
 
-
+    
     fetch('/api/index',{
         method : 'GET',
         headers: {
@@ -11,7 +11,7 @@ const onLoad = ()=>{
     })
     .then(response => response.json())
     .then(response =>{
-      
+       
         if(response){
             let i=0;
             response.response.forEach(element => {

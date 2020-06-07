@@ -155,12 +155,17 @@ const login = (req,res,next) =>{
                 }
                 if(result){
                     if(user.adminstatus){
-                      return  res.json({status:true,message:"Signed In as Admin!",admin :true})
+                      
+                      res.cookie(username=`${user.name}` , user.name, {maxAge:3600000})
+                      res.json({status:true,message:"Signed In as Admin!",admin :true})
+                      res.end()
                         
                     }
                     else{
-                    let token = jwt.sign({name:user.name},'AzQ,PI)0(',{expiresIn:'1h'})
+                    
+                    res.cookie("username" , user.name, {maxAge:3600000})
                     res.json({status:true,message:"Sign In Complete!"})
+                    res.end()
                     }
                 }
                 else{
