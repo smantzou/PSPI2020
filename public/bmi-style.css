@@ -176,27 +176,6 @@ div.dropdown-menu.show {
 #main-footer p {
   margin: 0;
 }
-#instamedia {
-  padding-top: 0.5em;
-  position: absolute;
-  margin-bottom: 0;
-  right: 1em;
-  display: inline-block;
-}
-#instamedia:hover {
-  transform: scale(1.1);
-  transform-origin: 50% 50%;
-}
-#fbmedia {
-  padding-top: 0.5em;
-  position: absolute;
-  right: 5em;
-  display: inline-block;
-}
-#fbmedia:hover {
-  transform: scale(1.1);
-  transform-origin: 50% 50%;
-}
 @media only screen and (max-width: 1544px) {
   .logo {
     margin-left: 0%;

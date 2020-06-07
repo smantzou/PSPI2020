@@ -205,7 +205,7 @@ div.dropdown-menu.show {
     font-size: 22px;
   }
   .row h1{
-    font-size: 140%;
+    font-size: 130%;
   }
   .row h2{
     font-size: 120%;
@@ -218,10 +218,10 @@ div.dropdown-menu.show {
 }
 @media only screen and (max-width: 768px) {
   .carousel-box{
-    width: 60%;
+    width: 65%;
   }
   .text-center{
-    font-size: 120%;
+    font-size: 110%;
   }
   h1.bg-success {
     font-size: 17px;
@@ -262,7 +262,7 @@ div.dropdown-menu.show {
     font-size: 90%;
   }
   .carousel-box{
-    width: 70%;
+    width: 80%;
   }
 
 }
