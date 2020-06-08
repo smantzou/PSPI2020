@@ -88,8 +88,7 @@ div.dropdown-menu.show {
   margin-left: auto;
   margin-right: auto;
   margin-top: 3%;
-
-  overflow: hidden;                                       /*xamos SOS*/
+  overflow: hidden;                                       
 }
 .bg-success a {
   color: white;
@@ -123,7 +122,6 @@ div.dropdown-menu.show {
   margin-bottom: 3%;
   padding-left: 2%;
   padding-right: 2%;
-  border-radius: 1em;
 }
 /* Footer*/
 #main-footer {
