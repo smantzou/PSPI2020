@@ -1,9 +1,9 @@
-const express     =  require('express') 
-const mongoose    =  require('mongoose') 
-
-const morgan      =  require('morgan') 
-const bodyParser  =  require('body-parser')
-const path        =  require('path')
+const express      =  require('express') 
+const mongoose     =  require('mongoose') 
+const cookieParser =  require('cookie-parser')
+const morgan       =  require('morgan') 
+const bodyParser   =  require('body-parser')
+const path         =  require('path')
 
 
 const EmployeeRoute = require('./routes/employee')
@@ -26,6 +26,7 @@ db.once('open',()=>{
 
 const app = express()
 
+app.use(cookieParser())
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
@@ -35,6 +36,7 @@ app.use('/api',AuthRoute)
 app.use('/api/lostpass',LostpassRoute)
 
 app.use(express.static('public'))
+
 
 const PORT = process.env.PORT || 3000
 
@@ -54,5 +56,12 @@ app.get('/admin',function(req,res){
         .status(200)
         .sendFile(path.join(__dirname, './public', 'adminpage.html'));
 })
+app.get('/profile',function(req,res){
+    res
+
+        .status(200)
+        .sendFile(path.join(__dirname, './public', 'profile.html'));
+})
+
 
 
