@@ -58,15 +58,23 @@
 <div class="profile_box">
     <h2 class="info_header">Personal Information</h2>
     <div class="img_box">
-        <img src="./images/neos.jpeg" alt="photo profile">
+        <img src="./images/avatar.png" alt="photo profile">
     </div>
     <div class="info">
-        <h3>Gender: Male</h3>
-        <h3>Age: 22 years old</h3>
-        <h3>Height: 1.84 m</h3>
-        <h3>Weight: 83 kg</h3>
+        <h3 id="gender"></h3>
+        <h3 id="age"></h3>
+        <h3 id="height"></h3>
+        <h3 id="weight"></h3>
+        <input type="text" id="newGender">
+        <input type="text" id="newAge">
+        <input type="text" id="newHeight">
+        <input type="text" id="newWeight">
+        <div>
+          <button id="editButton" class="btn-info">Edit &#9998</button>
+        </div>
+        
     </div>
-    <h2 class="name">Georgios Akritidis</h2>
+    <h2 id="username" class="name"></h2>
 </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -88,5 +96,6 @@
           Copyright &copy; 2020 Healthy Life
         </p>
 </footer>
+<script src="./profile.js" onload="onLoad()"></script>
 </body>
 </html>

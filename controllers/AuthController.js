@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 
+
 const index = (req,res,next) => {
    
     User.find()
@@ -18,6 +19,23 @@ const index = (req,res,next) => {
                 message:'An error !!'
             })
         })
+}
+const show = (req,res,next) => {
+    let username = req.body.name 
+    
+    User.findOne({name : username})
+
+    .then(response => {
+        res.json({
+            response
+        })
+    })
+    .catch(error => {
+        console.log(error)
+        res.json({
+            message: 'An error has occured!'
+        })
+    })
 }
 const destroy = (req,res,next) => {
     let userID = req.body.userID
@@ -80,7 +98,55 @@ const update = (req,res,next) => {
     })
     
 }
+const updateMetrics = (req,res,next)=>{
+   let  gender             =   req.body.postGender
+   let  age                =   req.body.postAge
+   let  height             =   req.body.postHeight
+   let  weight             =   req.body.postWeight
+   
+   let  name               =   req.body.name
 
+    
+
+    let updatedData = {
+        gender: gender,
+        age : age,
+        height : height,
+        weight : weight,
+        firstTimer : false
+
+    }
+    User.findOne({name : name},function(err,existingUSer){
+        if(existingUSer!=null){
+            User.findByIdAndUpdate(existingUSer._id,{$set: updatedData},{new : true})
+            .then(()=>{
+                res.json({
+                    status : true
+                })
+            })
+            .catch(error =>{
+                res.json({
+                    status : false ,
+                    message : 'An error has occured!'
+                })
+            })
+        }
+        else{
+            res.json({
+                status : false ,
+                message : 'An error has occured!'
+            })
+        }
+    })
+    .catch(error =>{
+        res.json({
+            status : false ,
+            message : 'An error has occured!'
+        })
+    })
+
+
+}
 
 const register = (req,res,next) =>{
     if(req.body.name == '' || req.body.password  == ''  || req.body.email == '' || req.body.confirmpassword == ''){
@@ -156,7 +222,7 @@ const login = (req,res,next) =>{
                 if(result){
                     if(user.adminstatus){
                       
-                      res.cookie(username=`${user.name}` , user.name, {maxAge:3600000})
+                      res.cookie('username', user.name, {maxAge:3600000})
                       res.json({status:true,message:"Signed In as Admin!",admin :true})
                       res.end()
                         
@@ -186,5 +252,5 @@ const login = (req,res,next) =>{
 }
 
 module.exports = { 
-    register,login,index,destroy,update
+    register,login,index,destroy,update,show,updateMetrics
 }

@@ -206,7 +206,7 @@ function onSave(){
               },600)
         }
         else{
-            alert(message)
+            alert(response.message)
         }
     })
     

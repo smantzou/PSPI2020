@@ -31,7 +31,7 @@ const onSumbitHandler = (event)=>{
           message.classList.add('success');
           message.innerHTML = response.message;
           setTimeout(function(){
-            window.location.href = '/'
+            window.location.href = '/profile'
           },1000)
         }
         }

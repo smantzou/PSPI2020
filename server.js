@@ -10,6 +10,8 @@ const EmployeeRoute = require('./routes/employee')
 const AuthRoute     = require('./routes/auth')
 const LostpassRoute = require('./routes/lostpass')
 
+const User = require('./models/User')
+
 mongoose.set('useFindAndModify', false);
 mongoose.connect('mongodb://localhost:27017/testdb',{ useNewUrlParser: true,useUnifiedTopology:true })
 
@@ -51,16 +53,43 @@ app.get('/', function(req,res){
         .sendFile(path.join(__dirname, './public', 'index.html'));
 })
 app.get('/admin',function(req,res){
-    res
+    const cookie = req.cookies
+    let name = cookie.username
+    User.findOne({name : name},function(err,existingUser){
+        if(existingUser.adminstatus){
+            res
 
-        .status(200)
-        .sendFile(path.join(__dirname, './public', 'adminpage.html'));
+            .status(200)
+            .sendFile(path.join(__dirname, './public', 'adminpage.html'));
+        }
+        else{
+            res
+
+            .status(400)
+            .sendFile(path.join(__dirname, './public', 'index.html'));
+        }
+    })
 })
 app.get('/profile',function(req,res){
-    res
+    const cookie = req.cookies
+    
+    if(cookie.username!=null){
+        res
 
         .status(200)
         .sendFile(path.join(__dirname, './public', 'profile.html'));
+        
+    }
+    else{
+        res
+
+        .status(400)
+        .sendFile(path.join(__dirname, './public', 'index.html'));
+    }
+    
+    
+    
+    
 })
 
 

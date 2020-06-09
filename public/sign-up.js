@@ -14,7 +14,7 @@ const onSumbitHandler = (event)=>{
         {
           name,email,password,confirmpassword
         }
-      ),
+      )
     })
     .then(response => response.json())
     .then(response => {
