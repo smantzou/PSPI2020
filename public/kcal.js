@@ -35,11 +35,11 @@ function calCalc() {
   let foodquant = parseFloat(foodquantityInput.value);
   showhelpvariable = showhelpvariable + foodcal * foodquant;
 
-  resultp.style.margin = "0px";
+  /*resultp.style.margin = "0px";
   resultp.style.color = "rgba(0, 128, 0, 0.904)";
   resultp.style.fontSize = "20px";
   resultp.style.textAlign = "center";
-  resultp.style.backgroundColor = "white";
+  resultp.style.backgroundColor = "white";*/
   box.appendChild(resultp);
 }
 
@@ -157,7 +157,7 @@ function putValuesInTable() {
     sortTable();
   }
 
-  if (table.rows.length > 3) {
+  /*if (table.rows.length > 3) {
     daily.style.marginTop = "43em";
     calendar.style.marginTop = "53em";
     printCals.style.marginTop = "68em";
@@ -186,7 +186,7 @@ function putValuesInTable() {
         }
       }
     }
-  }
+  }*/
 }
 
 function deleteRow(r) {
