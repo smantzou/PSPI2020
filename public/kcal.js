@@ -9,8 +9,7 @@ var foodquantityInput = document.getElementById("foodquantity");
 const form = document.getElementById("forma");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  // console.log(e);
-  const { foodInput, foodcalInput, foodquantityInput } = getCaloriesFormData();
+  const { foodInput, foodcalInput, foodquantityInput, timezoneInput } = getCaloriesFormData();
 
   fetch("/api/addCal", {
     method: "POST",
@@ -18,22 +17,25 @@ form.addEventListener("submit", (e) => {
       "Content-Type": "Application/json",
     },
     body: JSON.stringify({
-      totalCal: parseFloat(showhelpvariable),
+      food: foodInput,
+      foodsCal: foodcalInput,
+      quantity: foodquantityInput,
+      time: timezoneInput,
     }),
   })
-    .then((res) => res.json())
-    .then((res) => {
-      console.log(showhelpvariable);
+    .then((response) => response.json())
+    .then((response) => {
+      var showhelpvariable = response.calories;
+      //console.log(showhelpvariable);
+      resultp.textContent = `Your Calories for today are: ${showhelpvariable}`;
     });
 });
-let showhelpvariable = 0;
 flag3 = false;
 // Adds up the total calories to the bottom of the page
 function calCalc() {
   document.getElementById("show-result").style.visibility = "visible";
   let foodcal = parseFloat(foodcalInput.value);
   let foodquant = parseFloat(foodquantityInput.value);
-  showhelpvariable = showhelpvariable + foodcal * foodquant;
 
   resultp.style.margin = "0px";
   resultp.style.color = "rgba(0, 128, 0, 0.904)";
@@ -51,11 +53,13 @@ function getCaloriesFormData() {
   var foodquantityInput = parseFloat(
     document.getElementById("foodquantity").value
   );
+  var timezoneInput = document.getElementById("timezones").value;
 
   return {
     foodInput,
     foodcalInput,
     foodquantityInput,
+    timezoneInput,
   };
 }
 
@@ -64,9 +68,8 @@ function putValuesInTable() {
   var calendar = document.querySelector(".wrapper")
   var printCals = document.querySelector("#selectedDayCal")
 
-  const { foodInput, foodcalInput, foodquantityInput } = getCaloriesFormData();
+  const { foodInput, foodcalInput, foodquantityInput, timezoneInput } = getCaloriesFormData();
 
-  var timezoneInput = document.getElementById("timezones").value;
   var deleteButton = document.createElement("BUTTON");
   deleteButton.innerText = "x";
   deleteButton.style.color = "#fff";
@@ -121,9 +124,7 @@ function putValuesInTable() {
             flag2 = true;
           }
         }
-        resultp.textContent = `Your Calories for today are: ${showhelpvariable.toFixed(
-          1
-        )}`;
+        //resultp.textContent = `Your Calories for today are: ${showhelpvariable}`;
       }
       if (
         foodInput == foodExists &&
@@ -151,9 +152,7 @@ function putValuesInTable() {
         });
       }
     }
-    resultp.textContent = `Your Calories for today are: ${showhelpvariable.toFixed(
-      1
-    )}`;
+    //resultp.textContent = `Your Calories for today are: ${showhelpvariable}`;
     sortTable();
   }
 
@@ -190,12 +189,28 @@ function putValuesInTable() {
 }
 
 function deleteRow(r) {
-  var i = r.parentNode.rowIndex;
-  showhelpvariable = showhelpvariable - table.rows[i].cells[1].innerHTML;
-  resultp.textContent = `Your Calories for today are: ${showhelpvariable.toFixed(
-    1
-  )}`;
-  table.deleteRow(i);
+  //var i = r.parentNode.rowIndex;
+  //showhelpvariable = showhelpvariable - table.rows[i].cells[1].innerHTML;
+  //resultp.textContent = `Your Calories for today are: ${showhelpvariable}`;
+  //table.deleteRow(i);
+  fetch("/api/addCal", {
+    method: "POST",
+    headers: {
+      "Content-Type": "Application/json",
+    },
+    //body: JSON.stringify({
+      //totalCal: parseFloat(showhelpvariable),
+    //}),
+  })
+  .then((response) => response.json())
+  .then((response) => {
+    var showhelpvariable = response.calories;
+    //console.log(showhelpvariable);
+    var i = r.parentNode.rowIndex;
+    showhelpvariable = showhelpvariable - table.rows[i].cells[1].innerHTML;
+    resultp.textContent = `Your Calories for today are: ${showhelpvariable}`;
+    table.deleteRow(i);
+  });
 }
 
 function sortTable() {
@@ -317,25 +332,24 @@ function renderDate() {
     function dayClicked(j){
         return function(){
             document.querySelector("#selectedDayCal").style.visibility = "visible";
-            askedDate = JSON.stringify(daysClick[j].innerText + "/" + dt.getMonth() + "/2020")
-            console.log(askedDate)
+            let month = dt.getMonth() + 1
+            askedDate = JSON.stringify(daysClick[j].innerText + "/" + month + "/2020")
             fetch("/api/takeDate", {
-              method: "GET",
+              method: "POST",
               headers: {
                 "Content-Type": "Application/json",
               },
               body: JSON.stringify({
-                askedDate,
-              }),
+                askedDate
+              })
             })
-              .then((res) => res.json())
+              .then((response) => response.json())
               .then((response) => {
-                //console.log(askedDate);
                 if(response.status){
-                  console.log(response.calories)
+                  document.querySelector("#selectedDayCal").innerHTML = "Calories at selected date : " + response.calories
                 }
                 else{
-                  alert(response.message)
+                  document.querySelector("#selectedDayCal").innerHTML = "Calories at selected date : " + response.message
                 }
               })
               .catch((error) => {

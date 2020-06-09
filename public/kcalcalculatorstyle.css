@@ -22,6 +22,10 @@ body {
   background-color: rgba(0, 128, 0, 0.904);
 }
 
+.nav-item {
+  font-size: 19px;
+}
+
 .logo {
   flex: 1 1 auto;
   padding-left: 5%;
@@ -33,6 +37,9 @@ body {
 }
 
 #signin {
+  width: fit-content;
+  padding-left: 3px;
+  padding-right: 3px;
   color: rgba(0, 128, 0, 0.904);
   background-color: #f4f4f4;
   border-radius: 0.5em;
@@ -78,7 +85,7 @@ h1 {
   top: 20%;
   left: 50%;
   position: absolute;
-  /*border-radius: 1em;*/
+  border-radius: 1em;
 }
 
 /* Calculation Box START */
@@ -94,7 +101,7 @@ h1 {
   transform: translate(-50%, -50%);
   box-sizing: border-box;
   padding: 80px 0px;
-  /*border-radius: 1em;*/
+  border-radius: 1em;
   font-family: "Times New Roman", Times, serif;
 }
 
@@ -102,7 +109,7 @@ h1 {
   width: 100%;
   color: white;
   position: absolute;
-  /*border-radius: 1em;*/
+  border-radius: 1em;
   top: 0%;
   background-color: rgba(0, 128, 0, 0.904);
   text-align: center;
@@ -165,9 +172,8 @@ h1 {
 
 /* Timezone Boxes START */
 .timezone-box {
-  overflow: scroll;
   width: 50%;
-  height: 50%;
+  height: max-content;
   background: rgba(184, 234, 213, 1);
   color: black;
   left: 50%;
@@ -179,7 +185,7 @@ h1 {
   box-sizing: border-box;
   padding: 60px 0px;
   padding-bottom: 10px;
-  /*border-radius: 1em;*/
+  border-radius: 1em;
   font-family: "Times New Roman", Times, serif;
 }
 
@@ -187,7 +193,7 @@ h3 {
   width: 100%;
   color: white;
   position: absolute;
-  /*border-radius: 1em;*/
+  border-radius: 1em;
   top: 0%;
   background-color: rgba(0, 128, 0, 0.904);
   text-align: center;
@@ -444,6 +450,11 @@ h3 {
 
 ul {
   list-style-type: none;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .wrapper {
