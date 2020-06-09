@@ -129,6 +129,8 @@ div.dropdown-menu.show {
 }
 #bmibtn {
   border-style: solid 1px white;
+  font-weight: bold;
+  cursor: pointer;
   background-color: white;
   color: rgba(0, 128, 0, 0.904);
   padding: 2%;

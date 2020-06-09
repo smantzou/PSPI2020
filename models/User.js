@@ -36,21 +36,33 @@ const userSchema = new Schema(
       type : Boolean,
       default : true
     },
-    calories: [
-      {
-        date: {
-          type: String,
-        },
-        total: {
-          type: Number,
-        },
+     calories: [
+    {
+      date: {
+        type: String,
       },
-    ],
-    default: [],
-   
-  },
-  { timestamps: true }
-);
+      total: {
+        type: Number,
+      },
+      inputs: [
+        {
+          foods: {
+            type: String,
+          },
+          calPerFood: {
+            type: Number,
+          },
+          quantity: {
+            type: Number,
+          },
+          timezone: {
+            type: String,
+          },
+        },
+      ],
+    },
+  ],
+});
 
 const User = mongoose.model("User", userSchema);
 module.exports = User;

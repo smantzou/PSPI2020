@@ -1,14 +1,15 @@
-const express      =  require('express') 
-const mongoose     =  require('mongoose') 
-const cookieParser =  require('cookie-parser')
-const morgan       =  require('morgan') 
-const bodyParser   =  require('body-parser')
-const path         =  require('path')
+const express     =  require('express') 
+const mongoose    =  require('mongoose') 
+
+const morgan      =  require('morgan') 
+const bodyParser  =  require('body-parser')
+const path        =  require('path')
 
 
 const EmployeeRoute = require('./routes/employee')
 const AuthRoute     = require('./routes/auth')
 const LostpassRoute = require('./routes/lostpass')
+const CalRoute      = require('./routes/calRoute')
 
 const User = require('./models/User')
 
@@ -28,7 +29,6 @@ db.once('open',()=>{
 
 const app = express()
 
-app.use(cookieParser())
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
@@ -36,9 +36,9 @@ app.use('/uploads', express.static('uploads'))
 app.use('/api/employee',EmployeeRoute)
 app.use('/api',AuthRoute)
 app.use('/api/lostpass',LostpassRoute)
+app.use('/api',CalRoute)
 
 app.use(express.static('public'))
-
 
 const PORT = process.env.PORT || 3000
 

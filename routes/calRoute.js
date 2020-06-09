@@ -5,6 +5,6 @@ const CaloriesController = require('../controllers/CaloriesController')
 
 router.post('/addCal',CaloriesController.addCal)
 router.get('/showCal',CaloriesController.showCal)
-router.get('/takeDate',CaloriesController.takeDate)
+router.post('/takeDate',CaloriesController.takeDate)
 
 module.exports = router 
