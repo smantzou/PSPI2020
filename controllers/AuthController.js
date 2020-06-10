@@ -212,6 +212,7 @@ const login = (req,res,next) =>{
     User.findOne({name: username})
     .then(user =>{
         if(user){
+            console.log(user);
             bcrypt.compare(password,user.password,function(err,result){
                 if(err){
                     res.json({

@@ -1,6 +1,6 @@
 const express     =  require('express') 
 const mongoose    =  require('mongoose') 
-
+const cookieParser = require('cookie-parser')
 const morgan      =  require('morgan') 
 const bodyParser  =  require('body-parser')
 const path        =  require('path')
@@ -14,7 +14,7 @@ const CalRoute      = require('./routes/calRoute')
 const User = require('./models/User')
 
 mongoose.set('useFindAndModify', false);
-mongoose.connect('mongodb://localhost:27017/testdb',{ useNewUrlParser: true,useUnifiedTopology:true })
+mongoose.connect('mongodb+srv://dafal:1234567890@cluster0-tyzah.mongodb.net/testdb?retryWrites=true&w=majority',{ useNewUrlParser: true,useUnifiedTopology:true })
 
 
 const db = mongoose.connection
@@ -28,7 +28,7 @@ db.once('open',()=>{
 })
 
 const app = express()
-
+app.use(cookieParser())
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
@@ -72,7 +72,7 @@ app.get('/admin',function(req,res){
 })
 app.get('/profile',function(req,res){
     const cookie = req.cookies
-    
+    console.log(cookie)
     if(cookie.username!=null){
         res
 

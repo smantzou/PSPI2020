@@ -1,6 +1,3 @@
-const cookieParser = require("cookie-parser")
-
-
 function onLoad(){
     if(document.cookie!=""){
         const signInButton = document.getElementById('signin')
