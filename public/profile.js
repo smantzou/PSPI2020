@@ -24,11 +24,11 @@ function onLoad(){
         thisGender = response.response.gender
         thisAge    = response.response.age
         thisHeight = response.response.height
-        thisWeight = response.response.height
+        thisWeight = response.response.weight
         gender.innerHTML = "Gender: " + response.response.gender
         age.innerHTML = "Age: "+ response.response.age
         height.innerHTML = "Height: "  + response.response.height
-        weight.innerHTML = "Weight:" + response.response.height
+        weight.innerHTML = "Weight: " + response.response.weight
         username.innerHTML = response.response.name
     })
     .catch(error=>{
@@ -62,15 +62,39 @@ function onClickPencil(){
 }
 
 function onSave(){
-    const postGender    = newGender.value
-    const postAge       = parseInt(newAge.value)
-    const postHeight    = parseFloat(newHeight.value)
-    const postWeight    = parseFloat(newWeight.value)
+    let postGender    = newGender.value
+    let    postAge    = parseInt(newAge.value)
+    let postHeight    = parseFloat(newHeight.value)
+    let postWeight    = parseFloat(newWeight.value)
     
+    
+    if(postGender==''){
+        postGender = thisGender
+        newGender.value = thisGender
+        
+        
+    }
+   
+    
+    if(isNaN(parseInt(postAge))){
+        
+        newAge.value = thisAge
+        postAge= parseInt(newAge.value)
+    }
+    if(isNaN(parseFloat(postHeight))){
+        newHeight.value = thisHeight
+       
+        postHeight = parseFloat(newHeight.value)
+    }
+    if(isNaN(parseFloat(postWeight))){
+        newWeight.value = thisWeight
+        
+        postWeight = parseFloat(newWeight.value)
+    }
     const cookie = document.cookie
     let fields = cookie.split('=')
     const name = fields[1]
-
+    
     fetch('api/updateMetrics',{
         method : "POST",
         headers: {
@@ -109,10 +133,6 @@ function onSave(){
 
 
 
-let thisGender
-let thisAge
-let thisHeight
-let thisWeight
 
 const  gender           = document.getElementById('gender')
 const  age              = document.getElementById('age')

@@ -122,8 +122,9 @@ const onLoad = ()=>{
 }
 
 function onClickPencil() {
+    if(flag){
     let buttonId = parseInt(event.target.id) 
-    console.log(buttonId+1)
+    
     const eventButton = document.getElementById(`${buttonId}`)
     
     const name = document.getElementById(`${buttonId+2}`)
@@ -137,14 +138,36 @@ function onClickPencil() {
     name.removeAttribute('readonly')
     email.removeAttribute('readonly')
     pass.removeAttribute('readonly')
-    eventButton.style.visibility = 'hidden'
+    eventButton.innerHTML = '&#10154'
+    eventButton.removeEventListener('click',onClickPencil)
+    eventButton.addEventListener('click',onClickArrow)
+    saveButton.style.visibility = 'visible'
+    destroyButton.style.visibility = 'visible'
     edit.style.visibility = 'visible'
     
     saveButton.addEventListener('click',onSave)
     destroyButton.addEventListener('click',onDestroy)
+    flag = false
+    }
+    
     
 
     
+
+}
+function onClickArrow(){
+    flag = true
+    let buttonId = parseInt(event.target.id) 
+    const eventButton = document.getElementById(`${buttonId}`)
+    const saveButton = document.getElementById(`${buttonId+6}`)
+    const destroyButton = document.getElementById(`${buttonId+7}`)
+    const edit = document.getElementById(`${buttonId+5}`)
+    edit.style.visibility = 'hidden'
+    saveButton.style.visibility = 'hidden'
+    destroyButton.style.visibility = 'hidden'
+    eventButton.removeEventListener('click',onClickArrow)
+    eventButton.addEventListener('click',onClickPencil)
+    eventButton.innerHTML = '&#9998;'
 
 }
 
@@ -256,7 +279,7 @@ function onSubmit() {
           
         }
         else{
-          alert(message)
+          alert(response.message)
         }
       })
       .catch((error) => {
@@ -264,6 +287,7 @@ function onSubmit() {
       });
   }
 
+let flag = true;
 const buttonSubmit = document.getElementById('btn-submit')
 buttonSubmit.addEventListener('click',onSubmit)
 const container = document.getElementById('container')

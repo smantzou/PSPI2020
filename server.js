@@ -4,7 +4,7 @@ const mongoose    =  require('mongoose')
 const morgan      =  require('morgan') 
 const bodyParser  =  require('body-parser')
 const path        =  require('path')
-
+const cookieParser = require('cookie-parser')
 
 const EmployeeRoute = require('./routes/employee')
 const AuthRoute     = require('./routes/auth')
@@ -29,6 +29,7 @@ db.once('open',()=>{
 
 const app = express()
 
+app.use(cookieParser())
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
@@ -54,8 +55,16 @@ app.get('/', function(req,res){
 })
 app.get('/admin',function(req,res){
     const cookie = req.cookies
+    console.log(cookie)
     let name = cookie.username
     User.findOne({name : name},function(err,existingUser){
+        if(existingUser==null){
+            res
+
+            .status(400)
+            .sendFile(path.join(__dirname, './public', 'index.html'));
+            res.end()
+        }
         if(existingUser.adminstatus){
             res
 
