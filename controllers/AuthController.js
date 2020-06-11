@@ -1,6 +1,7 @@
 const User = require('../models/User')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const path = require('path')
 
 
 
@@ -56,7 +57,8 @@ const destroy = (req,res,next) => {
 }
 const update = (req,res,next) => {
     let userID = req.body.userID
-
+    let thisUsername  = req.body.thisUsername
+    let thisEmail = req.body.thisEmail
     let updatedData = {
         name : req.body.name,
         email : req.body.email,
@@ -64,9 +66,9 @@ const update = (req,res,next) => {
 
     }
     User.findOne({name : updatedData.name},function(err,existingUSer){
-        if(existingUSer==null){
+        if((existingUSer==null)||(updatedData.name==thisUsername)){
             User.findOne({email:updatedData.email},function(err,existingEmail){
-                if(existingEmail==null){
+                if((existingEmail==null)||(updatedData.email==thisEmail)){
                     User.findByIdAndUpdate(userID,{$set: updatedData},{new : true})
                     .then(() =>{
                     res.json({
@@ -97,6 +99,51 @@ const update = (req,res,next) => {
         }
     })
     
+}
+const uploadAvatar = (req,res,next) =>{
+    let name = req.body.name
+    console.log(req.body.formData)
+    User.findOne({name : name},function(err,existingUser){
+        
+        
+        if(existingUser!=null){
+            if(req.body.formData!=''){
+                console.log(req.body.formData)
+                existingUser.avatar = req.body.formData.basename
+                res.json({
+                    status : true, 
+                    message : 'Upload Complete',
+                    imageName : existingUser.avatar
+                })
+                return res.end()
+            }
+            else{
+                res.json({
+                    status : false, 
+                    message : 'Unexpected error during upload!1'
+                })
+            }
+        }
+        else{
+            res.json({
+                status:false,
+                message : 'Unexpected error during upload!2'
+            })
+        }
+    
+    
+    
+    })
+    .catch(error =>{
+        res.json({
+          error
+        })
+    })
+    
+    
+}
+const pair = (req,res,next)=>{
+
 }
 const updateMetrics = (req,res,next)=>{
    let  gender             =   req.body.postGender
@@ -253,5 +300,5 @@ const login = (req,res,next) =>{
 }
 
 module.exports = { 
-    register,login,index,destroy,update,show,updateMetrics
+    register,login,index,destroy,update,show,updateMetrics, uploadAvatar,pair
 }

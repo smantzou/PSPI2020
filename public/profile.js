@@ -1,5 +1,6 @@
 
 
+
 function onLoad(){
     const cookie = document.cookie
     let fields = cookie.split('=')
@@ -30,6 +31,7 @@ function onLoad(){
         height.innerHTML = "Height: "  + response.response.height
         weight.innerHTML = "Weight: " + response.response.weight
         username.innerHTML = response.response.name
+        userImage.setAttribute('src',`${response.response.avatar}`)
     })
     .catch(error=>{
         alert("An unexpected error occured!")
@@ -123,8 +125,69 @@ function onSave(){
         alert('An unexpected error occured!')
     })
 }
+function onEditImage(){
+    
+    inputFile.style.display = 'initial'
+    editImageButton.removeEventListener('click',onEditImage)
+    editImageButton.addEventListener('click',onUploadImage)
+    editImageButton.innerHTML = '&#8593'
+    submitPhoto.style.display = 'initial'
 
-
+}
+function onUploadImage(){
+   
+    let imagePath = inputFile.value
+    
+    
+    if(inputFile.value==''){
+        alert('Select a file to upload first!')
+    }
+    else{
+        fetch('/api/updateAvatar',{
+            method : "POST",
+              file : (
+                
+                imagePath
+                
+              )   
+        })
+    }
+    //     .then(response => response.json())
+    //     .then(response =>{
+    //         if(response.status){
+    //             let imageName = response.imageName
+    //             userImage.setAttribute('src',`../uploads/${imageName}`)
+    //         }
+    //         else{
+    //             alert(response.message)
+    //         }
+    //     })
+    //     .catch(error=>{
+    //         alert('LOL')
+    //     })
+    // }
+}
+function onSubmitPhoto(){
+    formData = new FormData(inputFile)
+    fetch('/api/updateAvatar',{
+        method : "POST",
+        body : {
+            formData
+        }
+    })
+    .then(response=> response.json())
+    .then(response => {
+        if(response.status ){
+            alert('upload complete')
+        }
+        else{
+            alert('upload not complete')
+        }
+    })
+    .catch(error=>{
+        console.log(error)
+    })
+}
 
 
 
@@ -144,5 +207,11 @@ const  newGender        = document.getElementById('newGender')
 const  newAge           = document.getElementById('newAge')
 const  newHeight        = document.getElementById('newHeight')
 const  newWeight        = document.getElementById('newWeight')
+const  userImage        = document.getElementById('userImage')
+const  inputFile        = document.getElementById('fileInput')
+const  editImageButton  = document.getElementById('editImageButton')
+editImageButton.addEventListener('click',onEditImage)
+const submitPhoto       = document.getElementById('submitPhoto')
+submitPhoto.addEventListener('click',onSubmitPhoto)
 
 editButton.addEventListener('click',onClickPencil)

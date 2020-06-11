@@ -58,8 +58,17 @@
 <div class="profile_box">
     <h2 class="info_header">Personal Information</h2>
     <div class="img_box">
-        <img src="./images/avatar.png" alt="photo profile">
+        <img id="userImage" alt="photo profile">
+        
     </div>
+    <div>
+      <button id="editImageButton" class="btn-info">&#9881</button>
+    </div>
+    <form  enctype="multipart/form-data">
+      <input name="avatar" id="fileInput" type="file">
+      <input type="submit" id="submitPhoto">
+    </form>
+    
     <div class="info">
         <h3 id="gender"></h3>
         <h3 id="age"></h3>

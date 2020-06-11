@@ -147,6 +147,8 @@ function onClickPencil() {
     
     saveButton.addEventListener('click',onSave)
     destroyButton.addEventListener('click',onDestroy)
+    thisUsername = name.value
+    thisEmail = email.value
     flag = false
     }
     
@@ -168,7 +170,7 @@ function onClickArrow(){
     eventButton.removeEventListener('click',onClickArrow)
     eventButton.addEventListener('click',onClickPencil)
     eventButton.innerHTML = '&#9998;'
-
+   
 }
 
 function onDestroy(){
@@ -215,7 +217,7 @@ function onSave(){
             'Content-Type': 'application/json',
           },
         body : JSON.stringify({
-            userID,name,email,password
+            userID,name,email,password,thisUsername,thisEmail
         })  
 
 

@@ -6,7 +6,7 @@ const bodyParser  =  require('body-parser')
 const path        =  require('path')
 
 
-const EmployeeRoute = require('./routes/employee')
+
 const AuthRoute     = require('./routes/auth')
 const LostpassRoute = require('./routes/lostpass')
 const CalRoute      = require('./routes/calRoute')
@@ -33,7 +33,7 @@ app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
 app.use('/uploads', express.static('uploads'))
-app.use('/api/employee',EmployeeRoute)
+
 app.use('/api',AuthRoute)
 app.use('/api/lostpass',LostpassRoute)
 app.use('/api',CalRoute)
@@ -62,7 +62,7 @@ app.get('/admin',function(req,res){
 
             .status(400)
             .sendFile(path.join(__dirname, './public', 'index.html'));
-            res.end()
+           return res.end()
         }
         if(existingUser.adminstatus){
             res
