@@ -10,6 +10,7 @@ const path        =  require('path')
 const AuthRoute     = require('./routes/auth')
 const LostpassRoute = require('./routes/lostpass')
 const CalRoute      = require('./routes/calRoute')
+const ContactRoute  = require('./routes/contactus')
 
 const User = require('./models/User')
 
@@ -37,6 +38,7 @@ app.use('/uploads', express.static('uploads'))
 app.use('/api',AuthRoute)
 app.use('/api/lostpass',LostpassRoute)
 app.use('/api',CalRoute)
+app.use('/api/contact',ContactRoute)
 
 app.use(express.static('public'))
 
@@ -98,6 +100,13 @@ app.get('/profile',function(req,res){
     
     
     
+})
+app.get('/signin',function(req,res){
+    res
+
+        .status(200)
+        .sendFile(path.join(__dirname, './public', 'sign-in.html'));
+
 })
 
 
