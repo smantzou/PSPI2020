@@ -15,7 +15,7 @@ const User = require('./models/User')
 
 mongoose.set('useFindAndModify', false);
 //mongoose.connect('mongodb+srv://dafal:1234567890@cluster0-tyzah.mongodb.net/testdb?retryWrites=true&w=majority',{ useNewUrlParser: true,useUnifiedTopology:true })
-mongoose.connect('mongodb://localhost:27017/testdb'),{ useNewUrlParser: true,useUnifiedTopology:true }
+mongoose.connect(('mongodb://localhost:27017/testdb'),{ useNewUrlParser: true,useUnifiedTopology:true })
 
 const db = mongoose.connection
 
