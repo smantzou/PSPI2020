@@ -1,6 +1,4 @@
 
-
-
 function onLoad(){
     const cookie = document.cookie
     let fields = cookie.split('=')

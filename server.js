@@ -33,7 +33,7 @@ app.use(cookieParser())
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
-app.use('/uploads', express.static('uploads'))
+//app.use('/uploads', express.static('uploads'))
 
 app.use('/api',AuthRoute)
 app.use('/api/lostpass',LostpassRoute)
