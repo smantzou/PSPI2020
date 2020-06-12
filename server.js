@@ -100,12 +100,57 @@ app.get('/profile',function(req,res){
     
 })
 app.get('/signin',function(req,res){
-    res
+    const cookie = req.cookies
+    if(cookie.username==null){
+        res
 
         .status(200)
         .sendFile(path.join(__dirname, './public', 'sign-in.html'));
+    }
+    else{
+        res
+
+        .status(400)
+        .sendFile(path.join(__dirname, './public', 'index.html'));
+    }
+   
+    
 
 })
+app.get('/signup',function(req,res){
+    const cookie = req.cookies
+    if(cookie.username==null){
+        res
 
+        .status(200)
+        .sendFile(path.join(__dirname, './public', 'sign-up.html'));
+    }
+    else{
+        res
 
+        .status(400)
+        .sendFile(path.join(__dirname, './public', 'index.html'));
+    }
+   
+    
+
+})
+app.get('/lostpass',function(req,res){
+    const cookie = req.cookies
+    if(cookie.username==null){
+        res
+
+        .status(200)
+        .sendFile(path.join(__dirname, './public', 'lostpass.html'));
+    }
+    else{
+        res
+
+        .status(400)
+        .sendFile(path.join(__dirname, './public', 'index.html'));
+    }
+   
+    
+
+})
 

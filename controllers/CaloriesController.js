@@ -1,7 +1,8 @@
 const User = require("../models/User");
 
 const addCal = (req, res, next) => {
-  var name = "alex";
+  //var name = "alex";
+  var name = req.cookies.username
   date = new Date();
   year = date.getFullYear();
   month = date.getMonth() + 1;
@@ -70,7 +71,8 @@ const addCal = (req, res, next) => {
 
 const takeDate = (req, res, next) => {
   const askedDate = req.body.askedDate
-  var name = "alex";
+  //var name = "alex";
+  var name = req.cookies.username
   User.findOne({ name })
   .then((user) => {
     if (user) {
