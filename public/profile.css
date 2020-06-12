@@ -5,6 +5,9 @@ body {
     font-family: "Times New Roman", Times, serif;
     font-size: 20px;
   }
+  input{
+    display: none
+  }
   area:hover {
     cursor: pointer;
   }
