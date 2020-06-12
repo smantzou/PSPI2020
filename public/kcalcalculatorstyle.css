@@ -187,6 +187,7 @@ h1 {
 
 /* Timezone Boxes START */
 .timezone-box {
+  overflow: scroll;
   width: 50%;
   height: 400px;
   margin-left: auto;
@@ -225,12 +226,16 @@ h3 {
   transform: translate(-50%, -50%);
   top: 27%;
   justify-content: center;*/
-  width: 50%; 
+
+  width: 50%;
+  height: 30px;
   margin-left: auto;
   margin-right: auto;
   color:  rgba(0, 128, 0, 0.904);
   text-align: center;
   visibility: hidden;
+  border: 1px solid blue;
+  
 }
 
 /* Table Styling START */

@@ -11,7 +11,7 @@
 
     <title>Healthy Life</title>
   </head>
-  <body onload="renderDate()">
+  <body onload="loading()">
     <!-- Navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
       <a class="navbar-brand logo" href="./index.html">Healthy Life</a>
@@ -58,6 +58,8 @@
     <link rel="stylesheet" type="text/css" href="./kcalcalculatorstyle.css">
     <div class="container-box">
       <h1>Calculate your Calories</h1>
+          <!-- Shows the calculated calories on screen /calCalc -->
+    <div class="footer" id="show-result" name="totalCals"></div>
       <!-- Calculation formbox-->
       <form class="calcbox" id="forma">
         <h2>Food Insertion</h2>
@@ -99,6 +101,7 @@
         </table>
       </div>
     </div>
+
 
     <div class="wrapper">
       <div class="calendar">
