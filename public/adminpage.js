@@ -239,7 +239,7 @@ function onSave(){
 
 }
 
-// 2.Na lysoyme to wtf error ths mongoose 
+ 
 
 
  
