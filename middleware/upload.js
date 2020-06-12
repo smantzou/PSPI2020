@@ -1,14 +1,15 @@
 const path =   require('path')
 const multer = require('multer')
-const express = require('express')
+
 
 var storage = multer.diskStorage({
     destination : function(req,file,cb){
         cb(null,'uploads/')
     },
     filename : function(req,file,cb){
-        let ext = path.extname(file.originalname)
-        cb(null,Date.now() + ext)
+        let ext = path.extname(file.originalname);
+        const fileName = Date.now() + ext;
+        cb(null, fileName);
     }
 })
 
@@ -18,23 +19,22 @@ var upload = multer ({
     
     fileFilter : function(req,file,callback){
         
-        if(file.mimetype == "image/png" || file.mimetype == "image/jpg"){
-            res.json({
-                status : true
-            })
+        if(file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg"){
+            
             callback(null,true)
         }
         else{
-            res.json({
-                status : false
-            })
+            console.log('big chungus')
             callback(null,false)
         }
     },
     limits : {
-            fileSize : 1024 * 1024 * 1024 *1024 * 1024 * 1024 * 2
+        
+        fileSize : 1024 * 1024 * 2
 
-        }
+    }
     
 })
+
 module.exports = upload
+

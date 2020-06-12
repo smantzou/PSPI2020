@@ -123,77 +123,37 @@ function onSave(){
         alert('An unexpected error occured!')
     })
 }
-function onEditImage(){
-    
-    inputFile.style.display = 'initial'
-    editImageButton.removeEventListener('click',onEditImage)
-    editImageButton.addEventListener('click',onUploadImage)
-    editImageButton.innerHTML = '&#8593'
+
+function onImageButtonClick(e){
+
     submitPhoto.style.display = 'initial'
+    inputFile.style.display = 'initial'
+    
+    imageForm.addEventListener('submit', function(e){
 
-}
-function onUploadImage(){
-   
-    let imagePath = inputFile.value
-    
-    
-    if(inputFile.value==''){
-        alert('Select a file to upload first!')
-    }
-    else{
-        fetch('/api/updateAvatar',{
+        e.preventDefault
+        const formData = new FormData(imageForm)
+        fetch('/api/uploadAvatar', {
+
             method : "POST",
-              file : (
-                
-                imagePath
-                
-              )   
+            body : formData
+            
         })
-    }
-    //     .then(response => response.json())
-    //     .then(response =>{
-    //         if(response.status){
-    //             let imageName = response.imageName
-    //             userImage.setAttribute('src',`../uploads/${imageName}`)
-    //         }
-    //         else{
-    //             alert(response.message)
-    //         }
-    //     })
-    //     .catch(error=>{
-    //         alert('LOL')
-    //     })
-    // }
+        .then(response => response.json())
+        .then(response => {
+            if(response.status){
+                userImage.src = `${response.fileName}`
+            }
+            else{
+                alert(response.message)
+            }
+
+        })
+
+    })
+
+
 }
-function onSubmitPhoto(){
-    formData = new FormData(inputFile)
-    fetch('/api/updateAvatar',{
-        method : "POST",
-        body : {
-            formData
-        }
-    })
-    .then(response=> response.json())
-    .then(response => {
-        if(response.status ){
-            alert('upload complete')
-        }
-        else{
-            alert('upload not complete')
-        }
-    })
-    .catch(error=>{
-        console.log(error)
-    })
-}
-
-
-
-
-
-
-
-
 
 const  gender           = document.getElementById('gender')
 const  age              = document.getElementById('age')
@@ -208,8 +168,8 @@ const  newWeight        = document.getElementById('newWeight')
 const  userImage        = document.getElementById('userImage')
 const  inputFile        = document.getElementById('fileInput')
 const  editImageButton  = document.getElementById('editImageButton')
-editImageButton.addEventListener('click',onEditImage)
-const submitPhoto       = document.getElementById('submitPhoto')
-submitPhoto.addEventListener('click',onSubmitPhoto)
+const  submitPhoto      = document.getElementById('submitPhoto')
+const  imageForm        = document.getElementById('imageform')
 
 editButton.addEventListener('click',onClickPencil)
+editImageButton.addEventListener('click', onImageButtonClick)

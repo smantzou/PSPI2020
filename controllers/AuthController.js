@@ -1,6 +1,5 @@
 const User = require('../models/User')
 const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
 const path = require('path')
 
 
@@ -101,37 +100,23 @@ const update = (req,res,next) => {
     
 }
 const uploadAvatar = (req,res,next) =>{
-    let name = req.body.name
-    console.log(req.body.formData)
-    User.findOne({name : name},function(err,existingUser){
-        
-        
-        if(existingUser!=null){
-            if(req.body.formData!=''){
-                console.log(req.body.formData)
-                existingUser.avatar = req.body.formData.basename
-                res.json({
-                    status : true, 
-                    message : 'Upload Complete',
-                    imageName : existingUser.avatar
-                })
-                return res.end()
-            }
-            else{
-                res.json({
-                    status : false, 
-                    message : 'Unexpected error during upload!1'
-                })
-            }
-        }
-        else{
+    let name = req.cookies.username
+
+    User.findOneAndUpdate({name : name}, { avatar: `../uploads/${req.file.filename}`}, function(err){
+
+        if(!err){
             res.json({
-                status:false,
-                message : 'Unexpected error during upload!2'
+                status : true,
+                message : "Your profile image has been succesfully updated",
+                fileName : req.file.fileName
+            })
+        } else {
+            res.json({
+                status : false,
+                message : "An error has occured chungus"
             })
         }
-    
-    
+        
     
     })
     .catch(error =>{
@@ -142,9 +127,7 @@ const uploadAvatar = (req,res,next) =>{
     
     
 }
-const pair = (req,res,next)=>{
 
-}
 const updateMetrics = (req,res,next)=>{
    let  gender             =   req.body.postGender
    let  age                =   req.body.postAge
@@ -300,5 +283,5 @@ const login = (req,res,next) =>{
 }
 
 module.exports = { 
-    register,login,index,destroy,update,show,updateMetrics, uploadAvatar,pair
+    register,login,index,destroy,update,show,updateMetrics, uploadAvatar
 }
