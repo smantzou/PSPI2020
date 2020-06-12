@@ -7,7 +7,12 @@ var foodquantityInput = document.getElementById("foodquantity");
 const form = document.getElementById("forma");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const { foodInput, foodcalInput, foodquantityInput, timezoneInput } = getCaloriesFormData();
+  const {
+    foodInput,
+    foodcalInput,
+    foodquantityInput,
+    timezoneInput,
+  } = getCaloriesFormData();
 
   fetch("/api/addCal", {
     method: "POST",
@@ -62,10 +67,15 @@ function getCaloriesFormData() {
 
 function putValuesInTable() {
   var daily = document.querySelector(".timezone-box");
-  var calendar = document.querySelector(".wrapper")
-  var printCals = document.querySelector("#selectedDayCal")
+  var calendar = document.querySelector(".wrapper");
+  var printCals = document.querySelector("#selectedDayCal");
 
-  const { foodInput, foodcalInput, foodquantityInput, timezoneInput } = getCaloriesFormData();
+  const {
+    foodInput,
+    foodcalInput,
+    foodquantityInput,
+    timezoneInput,
+  } = getCaloriesFormData();
 
   var deleteButton = document.createElement("BUTTON");
   deleteButton.innerText = "x";
@@ -197,14 +207,14 @@ function deleteRow(r) {
     body: JSON.stringify({
       foodDel,
       timeDel,
-    })
+    }),
   })
-  .then((response) => response.json())
-  .then((response) => {
-    var showhelpvariable = response.calories; 
-    resultp.textContent = `Your Calories for today are: ${showhelpvariable}`;
-    table.deleteRow(i);
-  });
+    .then((response) => response.json())
+    .then((response) => {
+      var showhelpvariable = response.calories;
+      resultp.textContent = `Your Calories for today are: ${showhelpvariable}`;
+      table.deleteRow(i);
+    });
 }
 
 function sortTable() {
@@ -272,149 +282,142 @@ document.getElementById("calbtn").addEventListener("click", dualFunction);
 
 var dt = new Date();
 function renderDate() {
-    dt.setDate(1);
-    var day = dt.getDay();
-    var today = new Date();
-    var endDate = new Date(
-        dt.getFullYear(),
-        dt.getMonth() + 1,
-        0
-    ).getDate();
+  dt.setDate(1);
+  var day = dt.getDay();
+  var today = new Date();
+  var endDate = new Date(dt.getFullYear(), dt.getMonth() + 1, 0).getDate();
 
-    var prevDate = new Date(
-        dt.getFullYear(),
-        dt.getMonth(),
-        0
-    ).getDate();
-    var months = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July", 
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-        ]
-    document.getElementById("month").innerHTML = months[dt.getMonth()];
-    document.getElementById("date_str").innerHTML = today.toDateString();
-    var cells = "";
-    for (x = day; x > 0; x--) {
-        cells += "<div class='prev_date'>" + (prevDate - x + 1) + "</div>";
-    }
-    for (i = 1; i <= endDate; i++) {
-        if (i == today.getDate() && dt.getMonth() == today.getMonth()){
-            cells += "<div class='today'>" + i + "</div>";
-        }
-          else
-            cells += "<div>" + i + "</div>";;
-    }
-    document.getElementsByClassName("days")[0].innerHTML = cells;
-    
-    daysClick = []
-    for (i = 0; i <= endDate + day - 1; i++) {
-        dayClick = document.getElementsByClassName("days")[0].children[i]
-        daysClick.push(dayClick)
-    }
-    for(let j = 0; j<=daysClick.length - 1 ; j++){
-        daysClick[j].addEventListener('click',dayClicked(j));
-    }
-    function dayClicked(j){
-        return function(){
-            document.querySelector("#selectedDayCal").style.visibility = "visible";
-            let month = dt.getMonth() + 1
-            askedDate = JSON.stringify(daysClick[j].innerText + "/" + month + "/2020")
-            fetch("/api/takeDate", {
-              method: "POST",
-              headers: {
-                "Content-Type": "Application/json",
-              },
-              body: JSON.stringify({
-                askedDate
-              })
-            })
-              .then((response) => response.json())
-              .then((response) => {
-                if(response.status){
-                  document.querySelector("#selectedDayCal").innerHTML = "Calories at selected date : " + response.calories
-                }
-                else{
-                  document.querySelector("#selectedDayCal").innerHTML = "Calories at selected date : " + response.message
-                }
-              })
-              .catch((error) => {
-                res.json({
-                  message: "An error occured",
-                });
-              });
-        };
-    }
+  var prevDate = new Date(dt.getFullYear(), dt.getMonth(), 0).getDate();
+  var months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  document.getElementById("month").innerHTML = months[dt.getMonth()];
+  document.getElementById("date_str").innerHTML = today.toDateString();
+  var cells = "";
+  for (x = day; x > 0; x--) {
+    cells += "<div class='prev_date'>" + (prevDate - x + 1) + "</div>";
+  }
+  for (i = 1; i <= endDate; i++) {
+    if (i == today.getDate() && dt.getMonth() == today.getMonth()) {
+      cells += "<div class='today'>" + i + "</div>";
+    } else cells += "<div>" + i + "</div>";
+  }
+  document.getElementsByClassName("days")[0].innerHTML = cells;
+
+  daysClick = [];
+  for (i = 0; i <= endDate + day - 1; i++) {
+    dayClick = document.getElementsByClassName("days")[0].children[i];
+    daysClick.push(dayClick);
+  }
+  for (let j = 0; j <= daysClick.length - 1; j++) {
+    daysClick[j].addEventListener("click", dayClicked(j));
+  }
+  function dayClicked(j) {
+    return function () {
+      document.querySelector("#selectedDayCal").style.visibility = "visible";
+      let month = dt.getMonth() + 1;
+      askedDate = JSON.stringify(
+        daysClick[j].innerText + "/" + month + "/2020"
+      );
+      fetch("/api/takeDate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "Application/json",
+        },
+        body: JSON.stringify({
+          askedDate,
+        }),
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          if (response.status) {
+            document.querySelector("#selectedDayCal").innerHTML =
+              "Calories at selected date : " + response.calories;
+          } else {
+            document.querySelector("#selectedDayCal").innerHTML =
+              "Calories at selected date : " + response.message;
+          }
+        })
+        .catch((error) => {
+          res.json({
+            message: "An error occured",
+          });
+        });
+    };
+  }
 }
 
 function moveDate(para) {
-if(para == "prev") {
+  if (para == "prev") {
     dt.setMonth(dt.getMonth() - 1);
-} else if(para == 'next') {
+  } else if (para == "next") {
     dt.setMonth(dt.getMonth() + 1);
+  }
+  renderDate();
 }
-renderDate();
-}
-    
-function takeTable(){
+
+function takeTable() {
   fetch("/api/giveTable", {
     method: "POST",
     headers: {
       "Content-Type": "Application/json",
     },
   })
-  .then((response) => response.json())
-  .then((response) => {
-    var retTable = response.table;
-    var deleteButton = document.createElement("BUTTON");
-    deleteButton.innerText = "x";
-    deleteButton.style.color = "#fff";
-    deleteButton.style.fontWeight = "400";
-    deleteButton.style.width = "2em";
-    deleteButton.style.fontFamily = "Arial, sans-serif";
-    deleteButton.style.backgroundColor = "red";
-    deleteButton.style.marginLeft = "33%";
-    deleteButton.style.textAlign = "center";
-    deleteButton.style.textDecoration = "none";
-    deleteButton.style.borderRadius = "4px";
-    deleteButton.style.border = "1px solid black";
-    deleteButton.style.cursor = "pointer";
-    var tableHelpDB = []
-    for(i of retTable){
-      if(i.calPerFood == 0 ){
-        continue;
-      }
-      tableHelpDB = [
-        i.foods,
-        i.calPerFood,
-        i.quantity,
-        i.timezone,
-        deleteButton.outerHTML,
-      ];
-      rowDB = table.insertRow();
-      for (k of tableHelpDB) {
-        celldb = rowDB.insertCell();
-        celldb.innerHTML = k;
-        if (celldb.innerText == "x") {
-          celldb.addEventListener("click", function () {
-            deleteRow(this);
-          });
+    .then((response) => response.json())
+    .then((response) => {
+      var retTable = response.table;
+      var deleteButton = document.createElement("BUTTON");
+      deleteButton.innerText = "x";
+      deleteButton.style.color = "#fff";
+      deleteButton.style.fontWeight = "400";
+      deleteButton.style.width = "2em";
+      deleteButton.style.fontFamily = "Arial, sans-serif";
+      deleteButton.style.backgroundColor = "red";
+      deleteButton.style.marginLeft = "33%";
+      deleteButton.style.textAlign = "center";
+      deleteButton.style.textDecoration = "none";
+      deleteButton.style.borderRadius = "4px";
+      deleteButton.style.border = "1px solid black";
+      deleteButton.style.cursor = "pointer";
+      var tableHelpDB = [];
+      for (i of retTable) {
+        if (i.calPerFood == 0) {
+          continue;
+        }
+        tableHelpDB = [
+          i.foods,
+          i.calPerFood,
+          i.quantity,
+          i.timezone,
+          deleteButton.outerHTML,
+        ];
+        rowDB = table.insertRow();
+        for (k of tableHelpDB) {
+          celldb = rowDB.insertCell();
+          celldb.innerHTML = k;
+          if (celldb.innerText == "x") {
+            celldb.addEventListener("click", function () {
+              deleteRow(this);
+            });
+          }
         }
       }
-    }
-    sortTable();
-  });
+      sortTable();
+    });
 }
 
-function loading(){
+function loading() {
   renderDate();
   takeTable();
 }

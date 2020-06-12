@@ -15,7 +15,7 @@ const onLoad = ()=>{
         if(response){
             let i=0;
             response.response.forEach(element => {
-                
+                console.log('ela')
                 const newRow = document.createElement('div')
                 newRow.classList.add('row')
 
@@ -122,8 +122,9 @@ const onLoad = ()=>{
 }
 
 function onClickPencil() {
+    if(flag){
     let buttonId = parseInt(event.target.id) 
-    console.log(buttonId+1)
+    
     const eventButton = document.getElementById(`${buttonId}`)
     
     const name = document.getElementById(`${buttonId+2}`)
@@ -137,15 +138,46 @@ function onClickPencil() {
     name.removeAttribute('readonly')
     email.removeAttribute('readonly')
     pass.removeAttribute('readonly')
-    eventButton.style.visibility = 'hidden'
+    eventButton.innerHTML = '&#10154'
+    eventButton.removeEventListener('click',onClickPencil)
+    eventButton.addEventListener('click',onClickArrow)
+    saveButton.style.visibility = 'visible'
+    destroyButton.style.visibility = 'visible'
     edit.style.visibility = 'visible'
     
     saveButton.addEventListener('click',onSave)
     destroyButton.addEventListener('click',onDestroy)
+    thisUsername = name.value
+    thisEmail = email.value
+    flag = false
+    }
+    
     
 
     
 
+}
+function onClickArrow(){
+    flag = true
+    let buttonId = parseInt(event.target.id) 
+
+    const eventButton = document.getElementById(`${buttonId}`)
+    const name = document.getElementById(`${buttonId+2}`)
+    const email = document.getElementById(`${buttonId+3}`)
+    const pass = document.getElementById(`${buttonId+4}`)
+    const saveButton = document.getElementById(`${buttonId+6}`)
+    const destroyButton = document.getElementById(`${buttonId+7}`)
+    const edit = document.getElementById(`${buttonId+5}`)
+    edit.style.visibility = 'hidden'
+    saveButton.style.visibility = 'hidden'
+    destroyButton.style.visibility = 'hidden'
+    eventButton.removeEventListener('click',onClickArrow)
+    eventButton.addEventListener('click',onClickPencil)
+    eventButton.innerHTML = '&#9998;'
+    name.setAttribute('readonly',true)
+    email.setAttribute('readonly',true)
+    pass.setAttribute('readonly',true)
+   
 }
 
 function onDestroy(){
@@ -192,7 +224,7 @@ function onSave(){
             'Content-Type': 'application/json',
           },
         body : JSON.stringify({
-            userID,name,email,password
+            userID,name,email,password,thisUsername,thisEmail
         })  
 
 
@@ -206,7 +238,7 @@ function onSave(){
               },600)
         }
         else{
-            alert(message)
+            alert(response.message)
         }
     })
     
@@ -214,7 +246,7 @@ function onSave(){
 
 }
 
-// 2.Na lysoyme to wtf error ths mongoose 
+ 
 
 
  
@@ -256,7 +288,7 @@ function onSubmit() {
           
         }
         else{
-          alert(message)
+          alert(response.message)
         }
       })
       .catch((error) => {
@@ -264,6 +296,7 @@ function onSubmit() {
       });
   }
 
+let flag = true;
 const buttonSubmit = document.getElementById('btn-submit')
 buttonSubmit.addEventListener('click',onSubmit)
 const container = document.getElementById('container')

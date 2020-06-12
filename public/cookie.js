@@ -1,6 +1,3 @@
-const cookieParser = require("cookie-parser")
-
-
 function onLoad(){
     if(document.cookie!=""){
         const signInButton = document.getElementById('signin')
@@ -39,7 +36,7 @@ function onLoad(){
        
         const logoutTag = document.createElement('a')
         logoutTag.classList.add('dropdown-item')
-        logoutTag.innerHTML = 'Logout'
+        logoutTag.innerHTML = 'Sign out'
         logoutTag.addEventListener('click',onClick)
 
         newDiv.appendChild(logoutTag)
