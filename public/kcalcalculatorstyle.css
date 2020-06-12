@@ -220,21 +220,15 @@ h3 {
 /* Timezone Boxes END */
 
 #show-result {
-  position: absolute;
-  /*left: 50%;
-  transform: translate(-50%, -50%);
-  top: 27%;
-  justify-content: center;*/
-
   width: 50%;
-  height: 30px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 2%;
   color:  rgba(0, 128, 0, 0.904);
   text-align: center;
   visibility: hidden;
-  border: 1px solid blue;
-  
+  border: 1px solid rgba(0, 128, 0, 0.904);
+  font-size: 25x;
 }
 
 /* Table Styling START */
