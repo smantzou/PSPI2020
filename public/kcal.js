@@ -1,5 +1,3 @@
-//import { response } from "express";
-
 // calCalc needed
 const box = document.getElementById("show-result");
 const resultp = document.createElement("p");
@@ -26,7 +24,6 @@ form.addEventListener("submit", (e) => {
     .then((response) => response.json())
     .then((response) => {
       var showhelpvariable = response.calories;
-      //console.log(showhelpvariable);
       resultp.textContent = `Your Calories for today are: ${showhelpvariable}`;
     });
 });
@@ -37,11 +34,11 @@ function calCalc() {
   let foodcal = parseFloat(foodcalInput.value);
   let foodquant = parseFloat(foodquantityInput.value);
 
-  resultp.style.margin = "0px";
+  /*resultp.style.margin = "0px";
   resultp.style.color = "rgba(0, 128, 0, 0.904)";
   resultp.style.fontSize = "20px";
   resultp.style.textAlign = "center";
-  resultp.style.backgroundColor = "white";
+  resultp.style.backgroundColor = "white";*/
   box.appendChild(resultp);
 }
 
@@ -156,7 +153,7 @@ function putValuesInTable() {
     sortTable();
   }
 
-  if (table.rows.length > 3) {
+  /*if (table.rows.length > 3) {
     daily.style.marginTop = "43em";
     calendar.style.marginTop = "53em";
     printCals.style.marginTop = "68em";
@@ -185,29 +182,26 @@ function putValuesInTable() {
         }
       }
     }
-  }
+  }*/
 }
 
 function deleteRow(r) {
-  //var i = r.parentNode.rowIndex;
-  //showhelpvariable = showhelpvariable - table.rows[i].cells[1].innerHTML;
-  //resultp.textContent = `Your Calories for today are: ${showhelpvariable}`;
-  //table.deleteRow(i);
-  fetch("/api/addCal", {
+  var i = r.parentNode.rowIndex;
+  foodDel = table.rows[i].cells[0].innerText;
+  timeDel = table.rows[i].cells[3].innerText;
+  fetch("/api/delCal", {
     method: "POST",
     headers: {
       "Content-Type": "Application/json",
     },
-    //body: JSON.stringify({
-      //totalCal: parseFloat(showhelpvariable),
-    //}),
+    body: JSON.stringify({
+      foodDel,
+      timeDel,
+    })
   })
   .then((response) => response.json())
   .then((response) => {
-    var showhelpvariable = response.calories;
-    //console.log(showhelpvariable);
-    var i = r.parentNode.rowIndex;
-    showhelpvariable = showhelpvariable - table.rows[i].cells[1].innerHTML;
+    var showhelpvariable = response.calories; 
     resultp.textContent = `Your Calories for today are: ${showhelpvariable}`;
     table.deleteRow(i);
   });
@@ -361,12 +355,66 @@ function renderDate() {
     }
 }
 
-    function moveDate(para) {
-    if(para == "prev") {
-        dt.setMonth(dt.getMonth() - 1);
-    } else if(para == 'next') {
-        dt.setMonth(dt.getMonth() + 1);
-    }
-    renderDate();
-    }
+function moveDate(para) {
+if(para == "prev") {
+    dt.setMonth(dt.getMonth() - 1);
+} else if(para == 'next') {
+    dt.setMonth(dt.getMonth() + 1);
+}
+renderDate();
+}
     
+function takeTable(){
+  fetch("/api/giveTable", {
+    method: "POST",
+    headers: {
+      "Content-Type": "Application/json",
+    },
+  })
+  .then((response) => response.json())
+  .then((response) => {
+    var retTable = response.table;
+    var deleteButton = document.createElement("BUTTON");
+    deleteButton.innerText = "x";
+    deleteButton.style.color = "#fff";
+    deleteButton.style.fontWeight = "400";
+    deleteButton.style.width = "2em";
+    deleteButton.style.fontFamily = "Arial, sans-serif";
+    deleteButton.style.backgroundColor = "red";
+    deleteButton.style.marginLeft = "33%";
+    deleteButton.style.textAlign = "center";
+    deleteButton.style.textDecoration = "none";
+    deleteButton.style.borderRadius = "4px";
+    deleteButton.style.border = "1px solid black";
+    deleteButton.style.cursor = "pointer";
+    var tableHelpDB = []
+    for(i of retTable){
+      if(i.calPerFood == 0 ){
+        continue;
+      }
+      tableHelpDB = [
+        i.foods,
+        i.calPerFood,
+        i.quantity,
+        i.timezone,
+        deleteButton.outerHTML,
+      ];
+      rowDB = table.insertRow();
+      for (k of tableHelpDB) {
+        celldb = rowDB.insertCell();
+        celldb.innerHTML = k;
+        if (celldb.innerText == "x") {
+          celldb.addEventListener("click", function () {
+            deleteRow(this);
+          });
+        }
+      }
+    }
+    sortTable();
+  });
+}
+
+function loading(){
+  renderDate();
+  takeTable();
+}

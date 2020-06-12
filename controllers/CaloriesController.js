@@ -13,11 +13,9 @@ const addCal = (req, res, next) => {
     if (user) {
       let flag = false;
       let flag2 = false;
-      //console.log(user.calories[1])
       for (const calory of user.calories) {
         if (calory.date === fullDate) {
-          calory.total = calory.total + req.body.foodsCal*parseFloat(req.body.quantity);
-          cals = calory.total;
+          calory.total = 0;
           for(i of calory.inputs){
             if(i.foods == req.body.food && i.timezone == req.body.time){
               i.calPerFood = i.calPerFood + req.body.foodsCal*parseFloat(req.body.quantity);
@@ -28,16 +26,20 @@ const addCal = (req, res, next) => {
           if(!flag2){
             calory.inputs.push({
               foods: req.body.food,
-              calPerFood: req.body.foodsCal,
+              calPerFood: req.body.foodsCal*parseFloat(req.body.quantity),
               quantity: req.body.quantity,
               timezone: req.body.time,
             })
+          }
+          for(i of calory.inputs){
+            //console.log(i.foods + " " + i.calPerFood + " " + i.quantity);
+            calory.total = calory.total + i.calPerFood ;
+            cals = calory.total;
           }
           flag = true;
           break;
         }
       }
-
       if (!flag) {
         user.calories.push({
           date: fullDate,
@@ -49,11 +51,7 @@ const addCal = (req, res, next) => {
             timezone: req.body.time,
           }],
         });
-        for (const calory of user.calories) {
-          cals = calory.total
-        }
-        //console.log(user.calories["total"])
-        //cals = 
+        cals = req.body.foodsCal*parseFloat(req.body.quantity);
       }
 
       user.save();
@@ -67,6 +65,73 @@ const addCal = (req, res, next) => {
   });
 };
 
+const delCal = (req, res, next) => {
+  var name = "alex";
+  date = new Date();
+  year = date.getFullYear();
+  month = date.getMonth() + 1;
+  day = date.getDate();
+  const foodDel = req.body.foodDel;
+  const timeDel = req.body.timeDel;
+  const fullDate = `${day}/${month}/${year}`;
+  User.findOne({ name })
+  .then((user) => {
+    if (user) {
+      for (const calory of user.calories) {
+        if (calory.date === fullDate) {
+          for(i of calory.inputs){
+            if(i.foods == foodDel && i.timezone == timeDel){
+              calory.total = calory.total - i.calPerFood;
+              cals = calory.total;
+              //console.log(cals)
+              i.calPerFood = 0;
+              i.quantity = 0;
+              //calory.inputs.splice(i,1);
+            }
+          }
+        }
+      }
+      user.save();
+      res.json({ calories: cals });
+    }
+  })
+  .catch((err) => {
+    res.json({
+      message: "An error occured",
+    });
+  });
+}
+
+const giveTable = (req, res, next) => {
+  var name = "alex";
+  date = new Date();
+  year = date.getFullYear();
+  month = date.getMonth() + 1;
+  day = date.getDate();
+  const fullDate = `${day}/${month}/${year}`;
+  User.findOne({ name })
+  .then((user) => {
+    if (user) {
+      for (const calory of user.calories) {
+        if (calory.date === fullDate) {
+          var array = calory.inputs
+          //cals = calory.total
+          //console.log(cals)
+          res.json({
+            table: array
+            //calories: cals
+          })
+        }
+      }
+      user.save();
+    }
+  })
+  .catch((err) => {
+    res.json({
+      message: "An error occured",
+    });
+  });
+}
 
 const takeDate = (req, res, next) => {
   const askedDate = req.body.askedDate
@@ -113,4 +178,6 @@ module.exports = {
   addCal,
   showCal,
   takeDate,
+  delCal,
+  giveTable,
 };
