@@ -15,7 +15,7 @@ const onLoad = ()=>{
         if(response){
             let i=0;
             response.response.forEach(element => {
-                
+                console.log('ela')
                 const newRow = document.createElement('div')
                 newRow.classList.add('row')
 
@@ -160,7 +160,11 @@ function onClickPencil() {
 function onClickArrow(){
     flag = true
     let buttonId = parseInt(event.target.id) 
+
     const eventButton = document.getElementById(`${buttonId}`)
+    const name = document.getElementById(`${buttonId+2}`)
+    const email = document.getElementById(`${buttonId+3}`)
+    const pass = document.getElementById(`${buttonId+4}`)
     const saveButton = document.getElementById(`${buttonId+6}`)
     const destroyButton = document.getElementById(`${buttonId+7}`)
     const edit = document.getElementById(`${buttonId+5}`)
@@ -170,6 +174,9 @@ function onClickArrow(){
     eventButton.removeEventListener('click',onClickArrow)
     eventButton.addEventListener('click',onClickPencil)
     eventButton.innerHTML = '&#9998;'
+    name.setAttribute('readonly',true)
+    email.setAttribute('readonly',true)
+    pass.setAttribute('readonly',true)
    
 }
 
