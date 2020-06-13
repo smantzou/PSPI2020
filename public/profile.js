@@ -142,7 +142,7 @@ function onImageButtonClick(e){
         .then(response => response.json())
         .then(response => {
             if(response.status){
-                userImage.src = `${response.fileName}`
+                userImage.src = `../uploads/${response.fileName}`
             }
             else{
                 alert(response.message)
