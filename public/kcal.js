@@ -418,6 +418,35 @@ function takeTable() {
 }
 
 function loading() {
-  renderDate();
-  takeTable();
+  if (!(document.cookie = "")) {
+    let cookie = document.cookie;
+    let fields = cookie.split("=");
+    let name = fields[1];
+    fetch("/api/show", {
+      method: "POST",
+      headers: {
+        "Content-Type": "Application/json",
+      },
+      body: JSON.stringify({
+        name,
+      }),
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.response == null) {
+          alert("You have to log in");
+          setTimeout(function () {
+            window.location.href = "/";
+          }, 2000);
+        } else {
+          renderDate();
+          takeTable();
+        }
+      });
+  } else {
+    alert("You have to log in");
+    setTimeout(function () {
+      window.location.href = "/";
+    }, 2000);
+  }
 }
