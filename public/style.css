@@ -50,7 +50,7 @@ div.dropdown-menu.show {
 }
 .dropdown-item:hover {
   color: rgba(0, 128, 0, 0.904);
-  /*background-color: white;*/
+  background-color: white;
   text-decoration: none;
   width: max-content;
   font-weight: bold;

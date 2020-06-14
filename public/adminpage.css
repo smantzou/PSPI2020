@@ -1,4 +1,4 @@
-body {
+  body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
@@ -37,6 +37,7 @@ body {
   }
   div.dropdown-menu.show {
     background: rgba(0, 128, 0, 0.904);
+    color: white;
   }
   .dropdown-item a {
     color: rgba(0, 128, 0, 0.904);
@@ -79,7 +80,22 @@ body {
     font-size: 35px;
     color: white;
   }
-
+  #user-dropdown{
+    text-transform: none;
+  }
+  #js-dropdown-item:hover{
+   color: rgba(0, 128, 0, 0.904);
+  }
+  .user-img{
+    background-image: url("./images/avatar.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    visibility: hidden;
+  }
 .headers{
     width: 80%;
     margin-top: 3%;
