@@ -29,7 +29,8 @@ function onLoad(){
         height.innerHTML = "Height: "  + response.response.height
         weight.innerHTML = "Weight: " + response.response.weight
         username.innerHTML = response.response.name
-        userImage.setAttribute('src',`${response.response.avatar}`)
+        console.log(response.response.avatar)
+        userImage.setAttribute('src',`/uploads/${response.response.avatar}`)
     })
     .catch(error=>{
         alert("An unexpected error occured!")
@@ -141,7 +142,9 @@ function onImageButtonClick(e){
         })
         .then(response => response.json())
         .then(response => {
+           
             if(response.status){
+                
                 userImage.src = `../uploads/${response.fileName}`
             }
             else{
@@ -149,6 +152,9 @@ function onImageButtonClick(e){
             }
 
         })
+        // .catch(error =>{
+        //     console.log(error)
+        // })
 
     })
 

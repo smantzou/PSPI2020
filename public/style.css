@@ -83,7 +83,7 @@ div.dropdown-menu.show {
  color: rgba(0, 128, 0, 0.904);
 }
 .user-img{
-  background-image: url("./images/avatar.png");
+  
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

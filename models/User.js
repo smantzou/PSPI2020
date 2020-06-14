@@ -38,7 +38,7 @@ const userSchema = new Schema(
     },
     avatar : {
       type : String,
-      default : 'images/avatar.png'
+      default : '/uploads/avatar.png'
     },
      calories: [
     {

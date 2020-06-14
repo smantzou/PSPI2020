@@ -437,7 +437,7 @@ function loading() {
           alert("You have to log in");
           setTimeout(function () {
             window.location.href = "/";
-          }, 2000);
+          }, 600);
         } else {
           renderDate();
           takeTable();
@@ -447,6 +447,6 @@ function loading() {
     alert("You have to log in");
     setTimeout(function () {
       window.location.href = "/";
-    }, 2000);
+    }, 600);
   }
 }
