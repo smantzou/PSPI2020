@@ -204,6 +204,16 @@ const getAvatar = (req,res,next)=>{
 }
 
 const register = (req,res,next) =>{
+    let name = req.body.name.split('')
+    for(let i=0;i<name.length;i++){
+        if(name[i]==' '){
+           return res.json({
+                status : false,
+                message : "No spaces allowed in username!"
+            })
+        }
+    }
+
     if(req.body.name == '' || req.body.password  == ''  || req.body.email == '' || req.body.confirmpassword == ''){
         res.status(400).json({status : false,message : "Please enter all fields!"})
     }

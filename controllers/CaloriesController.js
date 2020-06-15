@@ -2,7 +2,7 @@ const User = require("../models/User");
 
 const addCal = (req, res, next) => {
   //var name = "alex";
-  var name = req.cookies.username;
+  var name = req.cookies.healthylifesession;
   date = new Date();
   year = date.getFullYear();
   month = date.getMonth() + 1;
@@ -73,7 +73,7 @@ const addCal = (req, res, next) => {
 
 const delCal = (req, res, next) => {
   //var name = "alex";
-  var name = req.cookies.username;
+  var name = req.cookies.healthylifesession;
   date = new Date();
   year = date.getFullYear();
   month = date.getMonth() + 1;
@@ -111,7 +111,7 @@ const delCal = (req, res, next) => {
 
 const giveTable = (req, res, next) => {
   //var name = "alex";
-  var name = req.cookies.username;
+  var name = req.cookies.healthylifesession;
   date = new Date();
   year = date.getFullYear();
   month = date.getMonth() + 1;
@@ -144,7 +144,7 @@ const giveTable = (req, res, next) => {
 const takeDate = (req, res, next) => {
   const askedDate = req.body.askedDate;
   //var name = "alex";
-  var name = req.cookies.username;
+  var name = req.cookies.healthylifesession;
   User.findOne({ name })
     .then((user) => {
       if (user) {
