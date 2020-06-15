@@ -36,14 +36,6 @@ flag3 = false;
 // Adds up the total calories to the bottom of the page
 function calCalc() {
   document.getElementById("show-result").style.visibility = "visible";
-  let foodcal = parseFloat(foodcalInput.value);
-  let foodquant = parseFloat(foodquantityInput.value);
-
-  /*resultp.style.margin = "0px";
-  resultp.style.color = "rgba(0, 128, 0, 0.904)";
-  resultp.style.fontSize = "20px";
-  resultp.style.textAlign = "center";
-  resultp.style.backgroundColor = "white";*/
   box.appendChild(resultp);
 }
 
@@ -66,10 +58,6 @@ function getCaloriesFormData() {
 }
 
 function putValuesInTable() {
-  var daily = document.querySelector(".timezone-box");
-  var calendar = document.querySelector(".wrapper");
-  var printCals = document.querySelector("#selectedDayCal");
-
   const {
     foodInput,
     foodcalInput,
@@ -131,7 +119,6 @@ function putValuesInTable() {
             flag2 = true;
           }
         }
-        //resultp.textContent = `Your Calories for today are: ${showhelpvariable}`;
       }
       if (
         foodInput == foodExists &&
@@ -159,40 +146,8 @@ function putValuesInTable() {
         });
       }
     }
-    //resultp.textContent = `Your Calories for today are: ${showhelpvariable}`;
     sortTable();
   }
-
-  /*if (table.rows.length > 3) {
-    daily.style.marginTop = "43em";
-    calendar.style.marginTop = "53em";
-    printCals.style.marginTop = "68em";
-    if (table.rows.length > 9) {
-      daily.style.marginTop = "48em";
-      calendar.style.marginTop = "63em";
-      printCals.style.marginTop = "78em";
-      if (table.rows.length > 13) {
-        daily.style.marginTop = "58em";
-        calendar.style.marginTop = "83em";
-        printCals.style.marginTop = "98em";
-        if (table.rows.length > 21) {
-          daily.style.marginTop = "68em";
-          calendar.style.marginTop = "103em";
-          printCals.style.marginTop = "118em";
-          if (table.rows.length > 29) {
-            daily.style.marginTop = "78em";
-            calendar.style.marginTop = "125em";
-            printCals.style.marginTop = "140em";
-            if (table.rows.length > 37) {
-              daily.style.marginTop = "93em";
-              calendar.style.marginTop = "155em";
-              printCals.style.marginTop = "170em";
-            }
-          }
-        }
-      }
-    }
-  }*/
 }
 
 function deleteRow(r) {

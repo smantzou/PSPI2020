@@ -1,7 +1,6 @@
 const User = require("../models/User");
 
 const addCal = (req, res, next) => {
-  //var name = "alex";
   var name = req.cookies.username;
   date = new Date();
   year = date.getFullYear();
@@ -36,7 +35,6 @@ const addCal = (req, res, next) => {
               });
             }
             for (i of calory.inputs) {
-              //console.log(i.foods + " " + i.calPerFood + " " + i.quantity);
               calory.total = calory.total + i.calPerFood;
               cals = calory.total;
             }
@@ -72,7 +70,6 @@ const addCal = (req, res, next) => {
 };
 
 const delCal = (req, res, next) => {
-  //var name = "alex";
   var name = req.cookies.username;
   date = new Date();
   year = date.getFullYear();
@@ -90,10 +87,8 @@ const delCal = (req, res, next) => {
               if (i.foods == foodDel && i.timezone == timeDel) {
                 calory.total = calory.total - i.calPerFood;
                 cals = calory.total;
-                //console.log(cals)
                 i.calPerFood = 0;
                 i.quantity = 0;
-                //calory.inputs.splice(i,1);
               }
             }
           }
@@ -110,7 +105,6 @@ const delCal = (req, res, next) => {
 };
 
 const giveTable = (req, res, next) => {
-  //var name = "alex";
   var name = req.cookies.username;
   date = new Date();
   year = date.getFullYear();
@@ -123,11 +117,8 @@ const giveTable = (req, res, next) => {
         for (const calory of user.calories) {
           if (calory.date === fullDate) {
             var array = calory.inputs;
-            //cals = calory.total
-            //console.log(cals)
             res.json({
               table: array,
-              //calories: cals
             });
           }
         }
@@ -143,7 +134,6 @@ const giveTable = (req, res, next) => {
 
 const takeDate = (req, res, next) => {
   const askedDate = req.body.askedDate;
-  //var name = "alex";
   var name = req.cookies.username;
   User.findOne({ name })
     .then((user) => {
