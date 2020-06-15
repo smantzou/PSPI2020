@@ -72,13 +72,13 @@ div.dropdown-menu.show {
   width: max-content;
   font-weight: bold;
 }
-#user-dropdown{
+#user-dropdown {
   text-transform: none;
 }
-#js-dropdown-item:hover{
- color: rgba(0, 128, 0, 0.904);
+#js-dropdown-item:hover {
+  color: rgba(0, 128, 0, 0.904);
 }
-.user-img{
+.user-img {
   background-image: url("./images/avatar.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -206,7 +206,7 @@ h3 {
   margin-left: auto;
   margin-right: auto;
   margin-top: 2%;
-  color:  rgba(0, 128, 0, 0.904);
+  color: rgba(0, 128, 0, 0.904);
   text-align: center;
   visibility: hidden;
   font-size: 28px;
@@ -549,4 +549,3 @@ h3 {
     width: 89%;
   }
 }
-

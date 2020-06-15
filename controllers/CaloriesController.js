@@ -36,7 +36,6 @@ const addCal = (req, res, next) => {
               });
             }
             for (i of calory.inputs) {
-              //console.log(i.foods + " " + i.calPerFood + " " + i.quantity);
               calory.total = calory.total + i.calPerFood;
               cals = calory.total;
             }
@@ -90,10 +89,8 @@ const delCal = (req, res, next) => {
               if (i.foods == foodDel && i.timezone == timeDel) {
                 calory.total = calory.total - i.calPerFood;
                 cals = calory.total;
-                //console.log(cals)
                 i.calPerFood = 0;
                 i.quantity = 0;
-                //calory.inputs.splice(i,1);
               }
             }
           }
@@ -123,11 +120,8 @@ const giveTable = (req, res, next) => {
         for (const calory of user.calories) {
           if (calory.date === fullDate) {
             var array = calory.inputs;
-            //cals = calory.total
-            //console.log(cals)
             res.json({
               table: array,
-              //calories: cals
             });
           }
         }
