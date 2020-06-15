@@ -24,7 +24,6 @@ var upload = multer ({
             callback(null,true)
         }
         else{
-            console.log('big chungus')
             callback(null,false)
         }
     },
