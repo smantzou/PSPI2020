@@ -100,9 +100,9 @@ const update = (req,res,next) => {
     
 }
 const uploadAvatar = (req,res,next) =>{
-    let name = req.cookies.username
+    let name = req.cookies.healthylifesession
 
-    User.findOneAndUpdate({name : name}, { avatar: `../uploads/${req.file.filename}`}, function(err){
+    User.findOneAndUpdate({name : name}, { avatar: `/uploads/${req.file.filename}`}, function(err){
 
         if(!err){
             res.json({
@@ -173,6 +173,31 @@ const updateMetrics = (req,res,next)=>{
             status : false ,
             message : 'An error has occured!'
         })
+    })
+
+
+}
+const getAvatar = (req,res,next)=>{
+    let name = req.body.username
+    User.findOne({name:name},function(err,existingUSer){
+        if(existingUSer!=null){
+            res.json({
+                status : true ,
+                avatarUrl : existingUSer.avatar
+            })
+        }
+        else{
+            res.json({
+                status : false,
+                message: "An error has Occured!"
+            })
+        }
+
+
+
+    })
+    .catch(error=>{
+        console.log(error)
     })
 
 
@@ -253,14 +278,14 @@ const login = (req,res,next) =>{
                 if(result){
                     if(user.adminstatus){
                       
-                      res.cookie('username', user.name, {maxAge:3600000})
+                      res.cookie('healthylifesession', user.name, {maxAge:3600000})
                       res.json({status:true,message:"Signed In as Admin!",admin :true})
                       res.end()
                         
                     }
                     else{
                     
-                    res.cookie("username" , user.name, {maxAge:3600000})
+                    res.cookie('healthylifesession' , user.name, {maxAge:3600000})
                     res.json({status:true,message:"Sign In Complete!"})
                     res.end()
                     }
@@ -283,5 +308,5 @@ const login = (req,res,next) =>{
 }
 
 module.exports = { 
-    register,login,index,destroy,update,show,updateMetrics, uploadAvatar
+    register,login,index,destroy,update,show,updateMetrics, uploadAvatar,getAvatar
 }

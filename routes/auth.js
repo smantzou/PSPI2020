@@ -12,5 +12,6 @@ router.post('/update',AuthController.update)
 router.post('/show', AuthController.show)
 router.post('/updateMetrics', AuthController.updateMetrics)
 router.post('/uploadAvatar', upload.single('avatar'), AuthController.uploadAvatar)
+router.post('/getAvatar', AuthController.getAvatar)
 
 module.exports = router 

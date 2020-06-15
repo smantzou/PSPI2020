@@ -56,7 +56,7 @@ app.get('/', function(req,res){
 app.get('/admin',function(req,res){
     const cookie = req.cookies
     console.log(cookie)
-    let name = cookie.username
+    let name = cookie.healthylifesession
     User.findOne({name : name},function(err,existingUser){
         if(existingUser==null){
             res
@@ -81,7 +81,7 @@ app.get('/admin',function(req,res){
 })
 app.get('/profile',function(req,res){
     const cookie = req.cookies
-    if(cookie.username!=null){
+    if(cookie.healthylifesession!=null){
         res
 
         .status(200)
@@ -101,7 +101,7 @@ app.get('/profile',function(req,res){
 })
 app.get('/signin',function(req,res){
     const cookie = req.cookies
-    if(cookie.username==null){
+    if(cookie.healthylifesession==null){
         res
 
         .status(200)
@@ -119,7 +119,7 @@ app.get('/signin',function(req,res){
 })
 app.get('/signup',function(req,res){
     const cookie = req.cookies
-    if(cookie.username==null){
+    if(cookie.healthylifesession==null){
         res
 
         .status(200)
@@ -137,7 +137,7 @@ app.get('/signup',function(req,res){
 })
 app.get('/lostpass',function(req,res){
     const cookie = req.cookies
-    if(cookie.username==null){
+    if(cookie.healthylifesession==null){
         res
 
         .status(200)

@@ -31,6 +31,7 @@ body {
   }
   div.dropdown-menu.show {
     background: rgba(0, 128, 0, 0.904);
+    color: white;
   }
   .dropdown-item a {
     color: rgba(0, 128, 0, 0.904);
@@ -74,6 +75,22 @@ body {
     font-size: 35px;
     color: white;
   }
+  #user-dropdown{
+    text-transform: none;
+  }
+  #js-dropdown-item:hover{
+   color: rgba(0, 128, 0, 0.904);
+  }
+  .user-img{
+    background-image: url("./images/avatar.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    visibility: hidden;
+  }
   .profile_box{
     width: 60%;
     min-height: 500px;
@@ -116,6 +133,32 @@ body {
     text-align: center;
     overflow: hidden;
     border-left: 1px solid rgba(0, 128, 0, 0.904);
+  }
+  #editButton{
+    background-color: rgba(0, 128, 0, 0.904);
+    border-color: rgba(0, 128, 0, 0.904);
+    cursor: pointer;
+    outline: none;
+  }
+  #editButton:hover{
+    background-color: lightgreen;
+    border-color: lightgreen;
+  }
+  #editImageButton{
+    background-color: rgba(0, 128, 0, 0.904);
+    border-color: rgba(0, 128, 0, 0.904);
+    cursor: pointer;
+    outline: none;
+  }
+  #editImageButton:hover{
+    background-color: lightgreen;
+    border-color: lightgreen;
+  }
+  #imageform{
+    /*border: 1px solid rgba(0, 128, 0, 0.904);*/
+    overflow: hidden;
+    margin-bottom: 2%;
+    padding-right: 90%;
   }
   /* Footer*/
   #main-footer {
@@ -172,4 +215,8 @@ body {
         max-width: none;
     }
   }
-  
+  @media only screen and (max-width: 800px) {
+    .profile_box{
+      width: 90%;
+    }
+  }

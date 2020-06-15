@@ -56,6 +56,7 @@ body {
 
 div.dropdown-menu.show {
   background: rgba(0, 128, 0, 0.904);
+  color: white;
 }
 
 .dropdown-item a {
@@ -71,7 +72,22 @@ div.dropdown-menu.show {
   width: max-content;
   font-weight: bold;
 }
-
+#user-dropdown {
+  text-transform: none;
+}
+#js-dropdown-item:hover {
+  color: rgba(0, 128, 0, 0.904);
+}
+.user-img {
+  background-image: url("./images/avatar.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  visibility: hidden;
+}
 /* Nav bar END*/
 .container-box {
   margin-top: 2%;
@@ -97,8 +113,6 @@ h1 {
 
   color: black;
   box-sizing: border-box;
-
-  /*border-radius: 1em;*/
   font-family: "Times New Roman", Times, serif;
 }
 
@@ -195,8 +209,7 @@ h3 {
   color: rgba(0, 128, 0, 0.904);
   text-align: center;
   visibility: hidden;
-  border: 1px solid rgba(0, 128, 0, 0.904);
-  font-size: 25x;
+  font-size: 28px;
 }
 
 /* Table Styling START */
@@ -527,6 +540,7 @@ h3 {
   }
   #show-result {
     width: 89%;
+    font-size: 23px;
   }
   h1 {
     width: 89%;
