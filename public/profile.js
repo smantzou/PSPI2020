@@ -30,7 +30,7 @@ function onLoad(){
         weight.innerHTML = "Weight: " + response.response.weight
         username.innerHTML = response.response.name
         console.log(response.response.avatar)
-        userImage.setAttribute('src',`/uploads/${response.response.avatar}`)
+        userImage.setAttribute('src',`${response.response.avatar}`)
     })
     .catch(error=>{
         alert("An unexpected error occured!")
@@ -171,7 +171,7 @@ const  newGender        = document.getElementById('newGender')
 const  newAge           = document.getElementById('newAge')
 const  newHeight        = document.getElementById('newHeight')
 const  newWeight        = document.getElementById('newWeight')
-const  userImage        = document.getElementById('userImage')
+const  userImage        = document.getElementById('userImage1')
 const  inputFile        = document.getElementById('fileInput')
 const  editImageButton  = document.getElementById('editImageButton')
 const  submitPhoto      = document.getElementById('submitPhoto')

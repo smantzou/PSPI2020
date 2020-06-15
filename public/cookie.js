@@ -1,5 +1,3 @@
-
-
 function onLoad(){
     
     const cookie = document.cookie
@@ -18,7 +16,7 @@ function onLoad(){
             const signInButton = document.getElementById('signin')
             signInButton.style.display = 'none'
             const toEditLi = document.getElementById('toEdit')         
-    
+            console.log(toEditLi)
             toEditLi.classList.add('dropdown')
             
             const aTag = document.createElement('a')
