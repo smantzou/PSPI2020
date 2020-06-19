@@ -91,6 +91,7 @@ body {
     border-radius: 50%;
     visibility: hidden;
   }
+
   .profile_box{
     width: 60%;
     min-height: 500px;
@@ -218,5 +219,10 @@ body {
   @media only screen and (max-width: 800px) {
     .profile_box{
       width: 90%;
+    }
+  }
+  @media only screen and (max-width: 550px) {
+    #imageform{
+      font-size: 14px;
     }
   }
