@@ -1,11 +1,5 @@
 body {
   background-image: url(./images/park.jpg);
-  /*background-repeat: no-repeat;
-  background-position: center, bottom;
-  -webkit-background-size: 100% 100%;
-  -moz-background-size: 100% 100%;
-  background-size: 100% 100%;
-  -o-background-size: 100% 100%;*/
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
@@ -39,7 +33,7 @@ html {
 }
 .logo:hover {
   cursor: pointer;
-  color: rgba(240, 255, 255, 0.7);
+  color: white;
 }
 .container {
   margin-top: 15em;
@@ -51,10 +45,14 @@ html {
   position: relative;
   color: white;
 }
-
+.btn button[type="submit"]{
+  background-color: #f4f4f4;
+  color: rgba(0, 128, 0, 0.904);
+  font-size: large;
+}
 .btn button[type="submit"]:hover {
   cursor: pointer;
-  background: rgb(0, 191, 255);
+  background: lightgreen;
   color: white;
 }
 
